@@ -7,7 +7,7 @@ let selectedCard = null; // Current selected card
 
 addBtn.addEventListener("click", (e) => {
   const inputWrapper = document.createElement("div");
-  inputWrapper.classList.add("child-input-wapper");
+  inputWrapper.classList.add("child-input-wrapper");
 
   const nameInput = document.createElement("input");
   nameInput.type = "text";
