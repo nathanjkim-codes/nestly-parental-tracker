@@ -21,7 +21,23 @@ addBtn.addEventListener("click", (e) => {
   dobInput.placeholder = "Enter DOB";
   dobInput.classList.add("dob-input");
 
-  inputWrapper.appendChild(dobInput);
+  const genderSelect = document.createElement("select");
+  genderSelect.name = "gender";
+  genderSelect.id = "gender-select";
+
+  const options = ["male", "Female"];
+
+  options.forEach((gender) => {
+    const option = document.createElement("option");
+
+    option.value = gender.toLowerCase();
+    option.text = gender;
+    genderSelect.appendChild(option);
+  });
+
   inputWrapper.appendChild(nameInput);
-  childList.appendChild(inputWrapper);
+  inputWrapper.appendChild(dobInput);
+  inputWrapper.appendChild(genderSelect);
+
+  dashboard.appendChild(inputWrapper);
 });
