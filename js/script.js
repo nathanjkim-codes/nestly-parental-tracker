@@ -13,8 +13,15 @@ addBtn.addEventListener("click", (e) => {
   nameInput.type = "text";
   nameInput.name = "name[]";
   nameInput.placeholder = "Enter Name";
-  nameInput.classList.add("name-input");
+  nameInput.classList.add("name-input"); // setattribute?
 
+  const dobInput = document.createElement("input");
+  dobInput.type = "date";
+  dobInput.name = "dob[]";
+  dobInput.placeholder = "Enter DOB";
+  dobInput.classList.add("dob-input");
+
+  inputWrapper.appendChild(dobInput);
   inputWrapper.appendChild(nameInput);
   childList.appendChild(inputWrapper);
 });
