@@ -39,5 +39,5 @@ addBtn.addEventListener("click", (e) => {
   inputWrapper.appendChild(dobInput);
   inputWrapper.appendChild(genderSelect);
 
-  dashboard.appendChild(inputWrapper);
+  childList.appendChild(inputWrapper);
 });
