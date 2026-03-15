@@ -40,28 +40,28 @@ addBtn.addEventListener("click", (e) => {
   inputWrapper.appendChild(genderSelect);
 
   childList.appendChild(inputWrapper);
-});
 
-const saveBtn = document.createElement("button");
-saveBtn.textContent = "Save";
-saveBtn.classList.add("save-Btn");
+  const saveBtn = document.createElement("button");
+  saveBtn.textContent = "Save";
+  saveBtn.classList.add("save-Btn");
 
-saveBtn.addEventListener("click", () => {
-  const name = nameInput.value.trim();
-  const birthDate = dobInput.value;
-  const gender = genderSelect.value;
+  saveBtn.addEventListener("click", () => {
+    const name = nameInput.value.trim();
+    const birthDate = dobInput.value;
+    const gender = genderSelect.value;
 
-  const child = {
-    id: Date.now(), // unique ID for each child
-    name: nameInput.value,
-    birth: dobInput.value,
-    gender: genderSelect.value,
-    growthRecords: [], // array to store percentil records later
-  };
-  children.push(child);
+    const child = {
+      id: Date.now(), // unique ID for each child
+      name: nameInput.value,
+      birth: dobInput.value,
+      gender: genderSelect.value,
+      growthRecords: [], // array to store percentil records later
+    };
+    children.push(child);
 
-  const childCard = document.createElement("div");
-  childCard.classList.add("child-card");
-  childCard.textContent = child.name;
-  childList.appendChild(childCard);
+    const childCard = document.createElement("div");
+    childCard.classList.add("child-card");
+    childCard.textContent = child.name;
+    childList.appendChild(childCard);
+  });
 });
