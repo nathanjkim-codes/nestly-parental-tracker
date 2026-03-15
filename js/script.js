@@ -41,3 +41,7 @@ addBtn.addEventListener("click", (e) => {
 
   childList.appendChild(inputWrapper);
 });
+
+const saveBtn = document.createElement("button");
+saveBtn.textContent = "Save";
+saveBtn.classList.add("saveBtn");
