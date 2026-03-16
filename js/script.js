@@ -44,7 +44,8 @@ addBtn.addEventListener("click", (e) => {
 
   const saveBtn = document.createElement("button");
   saveBtn.textContent = "Save";
-  saveBtn.classList.add("save-Btn");
+  saveBtn.classList.add("save-btn");
+  inputWrapper.appendChild(saveBtn);
 
   saveBtn.addEventListener("click", () => {
     const name = nameInput.value.trim();
