@@ -24,8 +24,9 @@ addBtn.addEventListener("click", (e) => {
   const genderSelect = document.createElement("select");
   genderSelect.name = "gender";
   genderSelect.id = "gender-select";
+  genderSelect.classList.add("gender-input");
 
-  const options = ["male", "Female"];
+  const options = ["Male", "Female"];
 
   options.forEach((gender) => {
     const option = document.createElement("option");
