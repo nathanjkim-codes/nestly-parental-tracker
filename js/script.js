@@ -64,5 +64,17 @@ addBtn.addEventListener("click", (e) => {
     childCard.classList.add("child-card");
     childCard.textContent = child.name;
     childList.appendChild(childCard);
+
+    const childName = document.querySelector(".child-name");
+    const childBirth = document.querySelector(".child-birth");
+    const childGender = document.querySelector(".child-gender");
+
+    childCard.addEventListener("click", () => {
+      childName.textContent = name;
+      childBirth.textContent = birthDate;
+      childGender.textContent = gender;
+
+      inputWrapper.remove();
+    });
   });
 });
