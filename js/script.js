@@ -7,6 +7,17 @@ const childList = document.getElementById("child-list"); // Container for displa
 let children = []; // Array to store child cards
 let selectedCard = null; // Current selected card
 
+// Create child object
+function createChild(name, birth, gender) {
+  return {
+    id: Date.now(),
+    name: name,
+    birth: birth,
+    gender: gender,
+    growthRecords: [],
+  };
+}
+
 // Functionality: Add child input fields on button click
 addBtn.addEventListener("click", (e) => {
   // Create a wrapper for input fields
@@ -62,16 +73,6 @@ addBtn.addEventListener("click", (e) => {
     const birthDate = dobInput.value;
     const gender = genderSelect.value;
 
-    // Create child object
-    function createChild(name, birth, gender) {
-      return {
-        id: Date.now(),
-        name: name,
-        birth: birth,
-        gender: gender,
-        growthRecords: [],
-      };
-    }
     const child = createChild(name, birthDate, gender);
     children.push(child); // Save child to array
 
@@ -91,7 +92,7 @@ addBtn.addEventListener("click", (e) => {
       childName.textContent = name; // Update name display
       childBirth.textContent = birthDate; // Update birth date display
       childGender.textContent = gender; // Update gender display
-      a;
+
       inputWrapper.remove(); // Remove the input form after saving
     });
   });
