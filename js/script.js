@@ -89,9 +89,9 @@ addBtn.addEventListener("click", (e) => {
     const childGender = document.querySelector(".child-gender");
 
     childCard.addEventListener("click", () => {
-      childName.textContent = name; // Update name display
-      childBirth.textContent = birthDate; // Update birth date display
-      childGender.textContent = gender; // Update gender display
+      childName.textContent = child.name; // Update name display
+      childBirth.textContent = child.birthDate; // Update birth date display
+      childGender.textContent = child.gender; // Update gender display
 
       inputWrapper.remove(); // Remove the input form after saving
     });
