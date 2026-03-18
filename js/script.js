@@ -20,6 +20,7 @@ function createChild(name, birth, gender) {
 
 // Functionality: Add child input fields on button click
 addBtn.addEventListener("click", (e) => {
+  function createInputWrapper() {
   // Create a wrapper for input fields
   const inputWrapper = document.createElement("div");
   inputWrapper.classList.add("child-input-wrapper"); // Class for styling inputs
@@ -44,6 +45,7 @@ addBtn.addEventListener("click", (e) => {
   genderSelect.id = "gender-select"; // ID for gender dropdown
   genderSelect.classList.add("gender-input"); // Class for styling gender input
 
+  
   // Populate gender options
   const options = ["Male", "Female"];
   options.forEach((gender) => {
@@ -51,6 +53,9 @@ addBtn.addEventListener("click", (e) => {
     option.value = gender.toLowerCase();
     option.text = gender;
     genderSelect.appendChild(option);
+
+    return {inputWrapper, nameInput, dobInput, genderSelect};
+    });
   });
 
   // Add inputs to the wrapper
@@ -91,7 +96,7 @@ addBtn.addEventListener("click", (e) => {
     childCard.addEventListener("click", () => {
       childName.textContent = child.name; // Update name display
       childBirth.textContent = child.birthDate; // Update birth date display
-      childGender.textContent = child.gender; // Update gender display
+      childGender.textContent = childgender; // Update gender display
 
       inputWrapper.remove(); // Remove the input form after saving
     });
