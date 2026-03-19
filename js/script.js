@@ -31,6 +31,9 @@ addBtn.addEventListener("click", (e) => {
     nameInput.classList.add("name-input");
     dobInput.classList.add("dob-input");
     genderSelect.classList.add("gender-select");
+
+    inputWrapper.append(nameInput, dobInput, genderSelect_);
+    return { inputWrapper, nameInput, dobInput, genderSelect };
   }
 
   // Add input wrapper to the child list
