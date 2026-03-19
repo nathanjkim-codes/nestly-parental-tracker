@@ -53,10 +53,9 @@ addBtn.addEventListener("click", (e) => {
     option.value = gender.toLowerCase();
     option.text = gender;
     genderSelect.appendChild(option);
-
-    return {inputWrapper, nameInput, dobInput, genderSelect};
-    });
   });
+  
+  return {inputWrapper, nameInput, dobInput, genderSelect};
 
   // Add inputs to the wrapper
   inputWrapper.appendChild(nameInput);
