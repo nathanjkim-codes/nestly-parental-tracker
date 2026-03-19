@@ -30,7 +30,7 @@ function createInputWrapper() {
   dobInput.classList.add("dob-input");
   genderSelect.classList.add("gender-select");
 
-  inputWrapper.append(nameInput, dobInput, genderSelect_);
+  inputWrapper.append(nameInput, dobInput, genderSelect);
   return { inputWrapper, nameInput, dobInput, genderSelect };
 }
 
