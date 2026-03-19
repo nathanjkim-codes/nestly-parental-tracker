@@ -20,47 +20,13 @@ function createChild(name, birth, gender) {
 
 // Functionality: Add child input fields on button click
 addBtn.addEventListener("click", (e) => {
- 
-  // Create a wrapper for input fields
-  const inputWrapper = document.createElement("div");
-  inputWrapper.classList.add("child-input-wrapper"); // Class for styling inputs
-
-  // Create input field for child's name
-  const nameInput = document.createElement("input");
-  nameInput.type = "text";
-  nameInput.name = "name[]";
-  nameInput.placeholder = "Enter Name";
-  nameInput.classList.add("name-input"); // Class for styling name input
-
-  // Create input field for child's birth date
-  const dobInput = document.createElement("input");
-  dobInput.type = "date";
-  dobInput.name = "dob[]";
-  dobInput.placeholder = "Enter DOB";
-  dobInput.classList.add("dob-input");
-
-  // Create dropdown for gender selection
-  const genderSelect = document.createElement("select");
-  genderSelect.name = "gender";
-  genderSelect.id = "gender-select"; // ID for gender dropdown
-  genderSelect.classList.add("gender-input"); // Class for styling gender input
-
-  
-  // Populate gender options
-  const options = ["Male", "Female"];
-  options.forEach((gender) => {
-    const option = document.createElement("option");
-    option.value = gender.toLowerCase();
-    option.text = gender;
-    genderSelect.appendChild(option);
-  });
-  
-  return {inputWrapper, nameInput, dobInput, genderSelect};
-
-  // Add inputs to the wrapper
-  inputWrapper.appendChild(nameInput);
-  inputWrapper.appendChild(dobInput);
-  inputWrapper.appendChild(genderSelect);
+  //
+  function createInputWrapper() {
+    const inputWrapper = document.createElement("div");
+    const nameInput = document.createElement("input");
+    const dobInput = document.createElement("dob-input");
+    const genderSelect = document.createElement("gender-select");
+  }
 
   // Add input wrapper to the child list
   childList.appendChild(inputWrapper);
