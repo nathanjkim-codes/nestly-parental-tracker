@@ -17,6 +17,8 @@ function createChild(name, birth, gender) {
     growthRecords: [],
   };
 }
+
+// Createinput wrapper and child input elements
 function createInputWrapper() {
   const inputWrapper = document.createElement("div");
   const nameInput = document.createElement("input");
@@ -32,12 +34,12 @@ function createInputWrapper() {
   return { inputWrapper, nameInput, dobInput, genderSelect };
 }
 
-// Functionality: Add child input fields on button click
+//
 addBtn.addEventListener("click", (e) => {
+  const { inputWrapper, nameInput, dobInput, genderSelect } =
+    createInputWrapper();
+  childList.appendChild(inputWrapper); // Add inputwrapper to the child list
   //
-
-  // Add input wrapper to the child list
-  childList.appendChild(inputWrapper);
 
   // Save button creation
   const saveBtn = document.createElement("button");
