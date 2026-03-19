@@ -53,10 +53,9 @@ addBtn.addEventListener("click", (e) => {
     option.value = gender.toLowerCase();
     option.text = gender;
     genderSelect.appendChild(option);
-
-    return {inputWrapper, nameInput, dobInput, genderSelect};
-    });
   });
+  
+  return {inputWrapper, nameInput, dobInput, genderSelect};
 
   // Add inputs to the wrapper
   inputWrapper.appendChild(nameInput);
@@ -95,8 +94,8 @@ addBtn.addEventListener("click", (e) => {
 
     childCard.addEventListener("click", () => {
       childName.textContent = child.name; // Update name display
-      childBirth.textContent = child.birthDate; // Update birth date display
-      childGender.textContent = childgender; // Update gender display
+      childBirth.textContent = child.birth; // Update birth date display
+      childGender.textContent = child.gender; // Update gender display
 
       inputWrapper.remove(); // Remove the input form after saving
     });
