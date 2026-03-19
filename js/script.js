@@ -20,8 +20,8 @@ function createChild(name, birth, gender) {
 function createInputWrapper() {
   const inputWrapper = document.createElement("div");
   const nameInput = document.createElement("input");
-  const dobInput = document.createElement("dob-input");
-  const genderSelect = document.createElement("gender-select");
+  const dobInput = document.createElement("input");
+  const genderSelect = document.createElement("select");
 
   inputWrapper.classList.add("input-wrapper");
   nameInput.classList.add("name-input");
