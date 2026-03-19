@@ -26,6 +26,11 @@ addBtn.addEventListener("click", (e) => {
     const nameInput = document.createElement("input");
     const dobInput = document.createElement("dob-input");
     const genderSelect = document.createElement("gender-select");
+
+    inputWrapper.classList.add("input-wrapper");
+    nameInput.classList.add("name-input");
+    dobInput.classList.add("dob-input");
+    genderSelect.classList.add("gender-select");
   }
 
   // Add input wrapper to the child list
