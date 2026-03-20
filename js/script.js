@@ -55,6 +55,7 @@ addBtn.addEventListener("click", (e) => {
 
     const child = createChild(name, birthDate, gender);
     children.push(child); // Save child to array
+    inputWrapper.remove(); // Remove the input form after saving
 
     // Create and display child card
     const childCard = document.createElement("div");
