@@ -19,7 +19,7 @@ function createChild(name, birth, gender) {
 }
 
 // Functionality: Add child input fields on button click
-addBtn.addEventListener("click", (e) => {
+addBtn.addEventListener("click", () => {
   function createInputWrapper() {
   // Create a wrapper for input fields
   const inputWrapper = document.createElement("div");
