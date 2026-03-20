@@ -73,8 +73,6 @@ addBtn.addEventListener("click", () => {
       childName.textContent = child.name; // Update name display
       childBirth.textContent = child.birth; // Update birth date display
       childGender.textContent = child.gender; // Update gender display
-
-      inputWrapper.remove(); // Remove the input form after saving
     });
   });
 });
