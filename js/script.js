@@ -2,6 +2,10 @@
 const dashboard = document.getElementById("dashboard"); // Main dashboard container
 const addBtn = document.querySelector(".add-btn"); // Button to add new child
 const childList = document.getElementById("child-list"); // Container for displaying child card
+// Add click event to child card for showing details
+const childName = document.querySelector(".child-name");
+const childBirth = document.querySelector(".child-birth");
+const childGender = document.querySelector(".child-gender");
 
 // Data storage
 let children = []; // Array to store child cards
@@ -51,6 +55,22 @@ function createInputWrapper() {
   inputWrapper.append(nameInput, dobInput, genderSelect);
   return { inputWrapper, nameInput, dobInput, genderSelect };
 }
+// --- Create child card function (global)
+function createChildCard(child) {
+  const childCard = document.createElement("div");
+  childCard.classList.add("child-card");
+  childCard.textContent = child.name;
+
+  childList.appendChild(childCard);
+
+  // Display child details when the card is clicked
+  childCard.addEventListener("click", () => {
+    selectedCard = child; // Save the selected card
+    childName.textContent = child.name;
+    childBirth.textContent = child.birth;
+    childGender.textContent = child.gender;
+  });
+}
 
 //
 addBtn.addEventListener("click", () => {
@@ -75,22 +95,6 @@ addBtn.addEventListener("click", () => {
     children.push(child); // Save child to array
     inputWrapper.remove(); // Remove the input form after saving
 
-    // Create and display child card
-    const childCard = document.createElement("div");
-    childCard.classList.add("child-card");
-    childCard.textContent = child.name;
-
-    childList.appendChild(childCard); // Add card to child list
-
-    // Add click event to child card for showing details
-    const childName = document.querySelector(".child-name");
-    const childBirth = document.querySelector(".child-birth");
-    const childGender = document.querySelector(".child-gender");
-
-    childCard.addEventListener("click", () => {
-      childName.textContent = child.name; // Update name display
-      childBirth.textContent = child.birth; // Update birth date display
-      childGender.textContent = child.gender; // Update gender display
-    });
+    createChildCard(child);
   });
 });
