@@ -26,20 +26,38 @@ function createInputWrapper() {
   const genderSelect = document.createElement("select");
 
   inputWrapper.classList.add("input-wrapper");
-  nameInput.classList.add("name-input");
-  dobInput.classList.add("dob-input");
-  genderSelect.classList.add("gender-select");
-
+  nameInput.classList.add("name-input"); // Class for styling name input
+  dobInput.classList.add("dob-input"); // Class for styling dob input
+  genderSelect.classList.add("gender-select"); // Class for styling gender input
+  // Create input field for child's name
+  nameInput.type = "text";
+  nameInput.name = "name[]";
+  nameInput.placeholder = "Enter Name";
+  // Create input field for child's birth date
+  dobInput.type = "date";
+  dobInput.name = "dob[]";
+  dobInput.placeholder = "Enter DOB";
+  // Create dropdown for gender selection
+  genderSelect.name = "gender";
+  genderSelect.id = "gender-select"; // ID for gender dropdown
+  // Populate gender options
+  const options = ["Male", "Female"];
+  options.forEach((gender) => {
+    const option = document.createElement("option");
+    option.value = gender.toLowerCase();
+    option.text = gender;
+    genderSelect.appendChild(option);
+  });
   inputWrapper.append(nameInput, dobInput, genderSelect);
   return { inputWrapper, nameInput, dobInput, genderSelect };
 }
 
 //
 addBtn.addEventListener("click", () => {
+  // Destructure the returned object from createInputWrapper
   const { inputWrapper, nameInput, dobInput, genderSelect } =
     createInputWrapper();
   childList.appendChild(inputWrapper); // Add inputwrapper to the child list
-  //
 
   // Save button creation
   const saveBtn = document.createElement("button");
