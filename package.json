@@ -16,10 +16,5 @@
     "url": "https://github.com/nathanjkim-codes/nestly-parental-tracker/issues"
   },
   "homepage": "https://github.com/nathanjkim-codes/nestly-parental-tracker#readme",
-  "description": "",
-  "devDependencies": {
-    "@eslint/js": "^10.0.1",
-    "eslint": "^10.0.3",
-    "globals": "^17.4.0"
-  }
+  "description": ""
 }
