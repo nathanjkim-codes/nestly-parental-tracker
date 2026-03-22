@@ -85,6 +85,14 @@ addBtn.addEventListener("click", () => {
   saveBtn.classList.add("save-btn");
   inputWrapper.appendChild(saveBtn);
 
+  // Validation function
+  function validateChild(name, birthDate, gender) {
+    if (!name.trim()) return "Name is required";
+    if (!birthDate) return "Birth date is required";
+    if (!gender) return "Gender is required";
+    return null;
+  }
+
   // Add event listener to handle saving child data
   saveBtn.addEventListener("click", () => {
     const name = nameInput.value.trim();
