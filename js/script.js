@@ -2,9 +2,12 @@
 const dashboard = document.getElementById("dashboard"); // Main dashboard container
 const addBtn = document.querySelector(".add-btn"); // Button to add new child
 const childList = document.getElementById("child-list"); // Container for displaying child card
+
 // Add click event to child card for showing details
 const childName = document.querySelector(".child-name");
 const childBirth = document.querySelector(".child-birth");
+const childHeight = document.querySelector(".child-height");
+const childWeight = document.querySelector(".child-weight");
 const childGender = document.querySelector(".child-gender");
 
 // Data storage
@@ -12,11 +15,13 @@ let children = []; // Array to store child cards
 let selectedCard = null; // Current selected card
 
 // Create child object
-function createChild(name, birth, gender) {
+function createChild(name, birth, height, weight, gender) {
   return {
     id: Date.now(),
     name: name,
     birth: birth,
+    height: height,
+    weight: weight,
     gender: gender,
     growthRecords: [],
   };
@@ -27,23 +32,39 @@ function createInputWrapper() {
   const inputWrapper = document.createElement("div");
   const nameInput = document.createElement("input");
   const dobInput = document.createElement("input");
+  const heightInput = document.createElement("input");
+  const weightInput = document.createElement("input");
   const genderSelect = document.createElement("select");
 
   inputWrapper.classList.add("input-wrapper");
   nameInput.classList.add("name-input"); // Class for styling name input
   dobInput.classList.add("dob-input"); // Class for styling dob input
   genderSelect.classList.add("gender-select"); // Class for styling gender input
+
   // Create input field for child's name
   nameInput.type = "text";
   nameInput.name = "name[]";
   nameInput.placeholder = "Enter Name";
+
   // Create input field for child's birth date
   dobInput.type = "date";
   dobInput.name = "dob[]";
   dobInput.placeholder = "Enter DOB";
+
+  // Create input field for child's height
+  heightInput.type = "number";
+  heightInput.name = "height[]";
+  heightInput.placeholder = "Enter Height";
+
+  // Createinput field for child's weight
+  weightInput.type = "number";
+  weightInput.name = "weight[]";
+  weightInput.placeholder = "Enter weight";
+
   // Create dropdown for gender selection
   genderSelect.name = "gender";
   genderSelect.id = "gender-select"; // ID for gender dropdown
+
   // Populate gender options
   const options = ["Male", "Female"];
   options.forEach((gender) => {
@@ -52,8 +73,22 @@ function createInputWrapper() {
     option.text = gender;
     genderSelect.appendChild(option);
   });
-  inputWrapper.append(nameInput, dobInput, genderSelect);
-  return { inputWrapper, nameInput, dobInput, genderSelect };
+
+  inputWrapper.append(
+    nameInput,
+    dobInput,
+    heightInput,
+    weightInput,
+    genderSelect,
+  );
+  return {
+    inputWrapper,
+    nameInput,
+    dobInput,
+    heightInput,
+    weightInput,
+    genderSelect,
+  };
 }
 // --- Create child card function (global)
 function createChildCard(child) {
@@ -68,6 +103,8 @@ function createChildCard(child) {
     selectedCard = child; // Save the selected card
     childName.textContent = child.name;
     childBirth.textContent = child.birth;
+    childHeight.textContent = child.height;
+    childWeight.textContent = child.weight;
     childGender.textContent = child.gender;
   });
 }
@@ -75,8 +112,14 @@ function createChildCard(child) {
 //
 addBtn.addEventListener("click", () => {
   // Destructure the returned object from createInputWrapper
-  const { inputWrapper, nameInput, dobInput, genderSelect } =
-    createInputWrapper();
+  const {
+    inputWrapper,
+    nameInput,
+    dobInput,
+    heightInput,
+    weightInput,
+    genderSelect,
+  } = createInputWrapper();
   childList.appendChild(inputWrapper); // Add inputwrapper to the child list
 
   // Save button creation
@@ -86,9 +129,11 @@ addBtn.addEventListener("click", () => {
   inputWrapper.appendChild(saveBtn);
 
   // Validation function
-  function validateChild(name, birthDate, gender) {
+  function validateChild(name, birthDate, height, weight, gender) {
     if (!name.trim()) return "Name is required";
     if (!birthDate) return "Birth date is required";
+    if (!height) return "Height is required";
+    if (!weight) return "Weight is required";
     if (!gender) return "Gender is required";
     return null;
   }
@@ -97,6 +142,8 @@ addBtn.addEventListener("click", () => {
   saveBtn.addEventListener("click", () => {
     const name = nameInput.value.trim();
     const birthDate = dobInput.value;
+    const height = heightInput.value;
+    const weight = weightInput.value;
     const gender = genderSelect.value;
 
     const child = createChild(name, birthDate, gender);
