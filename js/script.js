@@ -146,7 +146,7 @@ addBtn.addEventListener("click", () => {
     const weight = weightInput.value;
     const gender = genderSelect.value;
 
-    const child = createChild(name, birthDate, gender);
+    const child = createChild(name, birthDate, height, weight, gender);
     children.push(child); // Save child to array
     inputWrapper.remove(); // Remove the input form after saving
 
