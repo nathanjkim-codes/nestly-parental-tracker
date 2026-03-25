@@ -3,12 +3,14 @@ const dashboard = document.getElementById("dashboard"); // Main dashboard contai
 const addBtn = document.querySelector(".add-btn"); // Button to add new child
 const childList = document.getElementById("child-list"); // Container for displaying child card
 
-// Add click event to child card for showing details
 const childName = document.querySelector(".child-name");
 const childBirth = document.querySelector(".child-birth");
 const childHeight = document.querySelector(".child-height");
 const childWeight = document.querySelector(".child-weight");
 const childGender = document.querySelector(".child-gender");
+
+const editBtn = document.querySelector(".edit-btn");
+const deleteBtn = document.querySelector("delete-btn");
 
 // Data storage
 let children = []; // Array to store child cards
@@ -26,7 +28,33 @@ function createChild(name, birth, height, weight, gender) {
     growthRecords: [],
   };
 }
+document
+  .querySelector(".card-content")
+  .addEventListener("submit", function (event) {
+    event.preventDefault(); // Prevent the default form submission
 
+    // Getthe values from input fields
+    const updatedName = name.value;
+    const updatedDob = birthDate.value;
+    const updatedHeight = height.value;
+    const updatedWeight = weight.value;
+    const updatedGender = gender.value;
+
+    // Create an object with the updated data
+    const updatedData = {
+      name: updatedName,
+      birth: updatedDob,
+      height: updatedHeight,
+      weight: updatedWeight,
+      gender: updatedGender,
+    };
+
+    selectedCard.name = updatedName;
+    selectedCard.birth = updatedDob;
+    selectedCard.height = updatedHeight;
+    selectedCard.weight = updatedWeight;
+    selectedCard.gender = updatedGender;
+  });
 // Createinput wrapper and child input elements
 function createInputWrapper() {
   const inputWrapper = document.createElement("div");
