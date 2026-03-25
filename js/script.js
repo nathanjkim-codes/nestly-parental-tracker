@@ -101,11 +101,11 @@ function createChildCard(child) {
   // Display child details when the card is clicked
   childCard.addEventListener("click", () => {
     selectedCard = child; // Save the selected card
-    childName.textContent = child.name;
-    childBirth.textContent = child.birth;
-    childHeight.textContent = child.height;
-    childWeight.textContent = child.weight;
-    childGender.textContent = child.gender;
+    childName.textContent = `Name: ${child.name}`;
+    childBirth.textContent = `Birth Date: ${child.dob}`;
+    childHeight.textContent = `Height: ${child.height}`;
+    childWeight.textContent = `Weight: ${child.weight}`;
+    childGender.textContent = `Gender: ${child.gender}`;
   });
 }
 
