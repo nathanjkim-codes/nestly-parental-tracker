@@ -28,34 +28,21 @@ function createChild(name, birth, height, weight, gender) {
     growthRecords: [],
   };
 }
-document
-  .querySelector(".card-content")
-  .addEventListener("submit", function (event) {
-    event.preventDefault(); // Prevent the default form submission
 
-    // Getthe values from input fields
-    const updatedName = name.value;
-    const updatedDob = birthDate.value;
-    const updatedHeight = height.value;
-    const updatedWeight = weight.value;
-    const updatedGender = gender.value;
+//
+editBtn.addEventListener("click", () => {
+  nameInput.value = selectedCard.name;
+  dobInput.value = selectedCard.birth;
+  heightInput.value = selectedCard.height;
+  weightInput.value = selectedCard.weight;
+  genderInput.value = selectedCard.gender;
 
-    // Create an object with the updated data
-    const updatedData = {
-      name: updatedName,
-      birth: updatedDob,
-      height: updatedHeight,
-      weight: updatedWeight,
-      gender: updatedGender,
-    };
+  const saveButton = document.createElement("button");
+  saveButton.textContent = "Save";
+  document.querySelector(".card-content").appendChild(saveButton);
+});
 
-    selectedCard.name = updatedName;
-    selectedCard.birth = updatedDob;
-    selectedCard.height = updatedHeight;
-    selectedCard.weight = updatedWeight;
-    selectedCard.gender = updatedGender;
-  });
-// Createinput wrapper and child input elements
+// Create input wrapper and child input elements
 function createInputWrapper() {
   const inputWrapper = document.createElement("div");
   const nameInput = document.createElement("input");
