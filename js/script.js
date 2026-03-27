@@ -10,7 +10,7 @@ const childWeight = document.querySelector(".child-weight");
 const childGender = document.querySelector(".child-gender");
 
 const editBtn = document.querySelector(".edit-btn");
-const deleteBtn = document.querySelector("delete-btn");
+const deleteBtn = document.querySelector(".delete-btn");
 
 // Data storage
 let children = []; // Array to store child cards
