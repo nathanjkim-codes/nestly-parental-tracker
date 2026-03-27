@@ -37,9 +37,12 @@ editBtn.addEventListener("click", () => {
   weightInput.value = selectedCard.weight;
   genderInput.value = selectedCard.gender;
 
-  const saveButton = document.createElement("button");
-  saveButton.textContent = "Save";
-  document.querySelector(".card-content").appendChild(saveButton);
+  if (!cardContent.querySelector(".save-btn")) {
+    const saveButton = document.createElement("button");
+    saveButton.classList.add("save-btn");
+    saveButton.textContent = "Save";
+    document.querySelector(".card-content").appendChild(saveButton);
+  }
 });
 
 // Create input wrapper and child input elements
