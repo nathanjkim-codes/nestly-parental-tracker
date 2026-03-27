@@ -1,1 +1,1 @@
-console.log("main.js connected!");
+import { createChildCard } from "./ui.js";
