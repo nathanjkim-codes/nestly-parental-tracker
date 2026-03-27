@@ -14,3 +14,25 @@ const childGender = document.querySelector(".child-gender");
 
 const editBtn = document.querySelector(".edit-btn");
 const deleteBtn = document.querySelector(".delete-btn");
+
+// Add click event listener tothe Edit button
+editBtn.addEventListener("click", () => {
+  // Populate the input fields iwth the selected card's data
+  nameInput.value = selectedCard.name;
+  dobInput.value = selectedCard.birth;
+  heightInput.value = selectedCard.height;
+  weightInput.value = selectedCard.weight;
+  genderInput.value = selectedCard.gender;
+
+  const cardContent = selectedCard.element.querySelector(".card-content");
+  // Check if the Save button does not exist inside this card
+  if (!cardContent.querySelector(".save-btn")) {
+    // Create a new Save button
+    const saveButton = document.createElement("button");
+    saveButton.classList.add("save-btn");
+    saveButton.textContent = "Save";
+
+    // Append the Save button to the card's content
+    cardContent.appendChild(saveButton);
+  }
+});
