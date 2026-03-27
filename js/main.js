@@ -15,6 +15,51 @@ const childGender = document.querySelector(".child-gender");
 const editBtn = document.querySelector(".edit-btn");
 const deleteBtn = document.querySelector(".delete-btn");
 
+// Handle click on Add button: show input form and save new child
+addBtn.addEventListener("click", () => {
+  // Destructure the returned object from createInputWrapper
+  const {
+    inputWrapper,
+    nameInput,
+    dobInput,
+    heightInput,
+    weightInput,
+    genderSelect,
+  } = createInputWrapper();
+  childList.appendChild(inputWrapper); // Add inputwrapper to the child list
+
+  // Save button creation
+  const saveBtn = document.createElement("button");
+  saveBtn.textContent = "Save";
+  saveBtn.classList.add("save-btn");
+  inputWrapper.appendChild(saveBtn);
+
+  // Validation function
+  function validateChild(name, birthDate, height, weight, gender) {
+    if (!name.trim()) return "Name is required";
+    if (!birthDate) return "Birth date is required";
+    if (!height) return "Height is required";
+    if (!weight) return "Weight is required";
+    if (!gender) return "Gender is required";
+    return null;
+  }
+
+  // Add event listener to handle saving child data
+  saveBtn.addEventListener("click", () => {
+    const name = nameInput.value.trim();
+    const birthDate = dobInput.value;
+    const height = heightInput.value;
+    const weight = weightInput.value;
+    const gender = genderSelect.value;
+
+    const child = createChild(name, birthDate, height, weight, gender);
+    children.push(child); // Save child to array
+    inputWrapper.remove(); // Remove the input form after saving
+
+    createChildCard(child);
+  });
+});
+
 // Add click event listener tothe Edit button
 editBtn.addEventListener("click", () => {
   // Populate the input fields iwth the selected card's data
