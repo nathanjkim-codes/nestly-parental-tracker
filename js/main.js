@@ -1,6 +1,9 @@
 import { children, createChild } from "./data.js";
 import { createInputWrapper, createChildCard } from "./ui.js";
 
+// Data storage
+let selectedCard = null;
+
 // Main UI elements
 const dashboard = document.getElementById("dashboard"); // Main dashboard container
 const addBtn = document.querySelector(".add-btn"); // Button to add new child
@@ -14,6 +17,16 @@ const childGender = document.querySelector(".child-gender");
 
 const editBtn = document.querySelector(".edit-btn");
 const deleteBtn = document.querySelector(".delete-btn");
+
+// Validation function
+function validateChild(name, birthDate, height, weight, gender) {
+  if (!name.trim()) return "Name is required";
+  if (!birthDate) return "Birth date is required";
+  if (!height) return "Height is required";
+  if (!weight) return "Weight is required";
+  if (!gender) return "Gender is required";
+  return null;
+}
 
 // Handle click on Add button: show input form and save new child
 addBtn.addEventListener("click", () => {
@@ -34,16 +47,6 @@ addBtn.addEventListener("click", () => {
   saveBtn.classList.add("save-btn");
   inputWrapper.appendChild(saveBtn);
 
-  // Validation function
-  function validateChild(name, birthDate, height, weight, gender) {
-    if (!name.trim()) return "Name is required";
-    if (!birthDate) return "Birth date is required";
-    if (!height) return "Height is required";
-    if (!weight) return "Weight is required";
-    if (!gender) return "Gender is required";
-    return null;
-  }
-
   // Add event listener to handle saving child data
   saveBtn.addEventListener("click", () => {
     const name = nameInput.value.trim();
@@ -51,6 +54,12 @@ addBtn.addEventListener("click", () => {
     const height = heightInput.value;
     const weight = weightInput.value;
     const gender = genderSelect.value;
+
+    const error = validateChild(name, birthDate, height, weight, gender);
+    if (error) {
+      alert(error);
+      return;
+    }
 
     const child = createChild(name, birthDate, height, weight, gender);
     children.push(child); // Save child to array
