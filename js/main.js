@@ -1,5 +1,5 @@
-import { createChildCard } from "./ui.js";
 import { children, createChild } from "./data.js";
+import { createInputWrapper, createChildCard } from "./ui.js";
 
 // Main UI elements
 const dashboard = document.getElementById("dashboard"); // Main dashboard container
