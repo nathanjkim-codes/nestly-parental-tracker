@@ -27,6 +27,7 @@ function validateChild(name, birthDate, height, weight, gender) {
   if (!gender) return "Gender is required";
   return null;
 }
+//
 
 // Handle click on Add button: show input form and save new child
 addBtn.addEventListener("click", () => {
@@ -66,6 +67,7 @@ addBtn.addEventListener("click", () => {
     inputWrapper.remove(); // Remove the input form after saving
 
     createChildCard(child);
+    childList.appendChild(childCard);
   });
 });
 
