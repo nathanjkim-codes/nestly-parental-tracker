@@ -67,7 +67,6 @@ addBtn.addEventListener("click", () => {
     inputWrapper.remove(); // Remove the input form after saving
 
     createChildCard(child);
-    childList.appendChild(childCard);
   });
 });
 
