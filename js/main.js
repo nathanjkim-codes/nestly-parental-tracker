@@ -80,7 +80,8 @@ addBtn.addEventListener("click", () => {
     children.push(child); // Save child to array
     inputWrapper.remove(); // Remove the input form after saving
 
-    createChildCard(child);
+    const childCard = createChildCard(child);
+    childList.appendChild(childCard);
   });
 });
 
