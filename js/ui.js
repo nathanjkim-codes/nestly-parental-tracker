@@ -68,15 +68,7 @@ export function createChildCard(child) {
   childCard.classList.add("child-card");
   childCard.textContent = child.name;
 
-  childList.appendChild(childCard);
+  childCard.dataset.id = child.id;
 
-  // Display child details when the card is clicked
-  childCard.addEventListener("click", () => {
-    selectedCard = child; // Save the selected card
-    childName.textContent = `Name: ${child.name}`;
-    childBirth.textContent = `Birth Date: ${child.dob}`;
-    childHeight.textContent = `Height: ${child.height}`;
-    childWeight.textContent = `Weight: ${child.weight}`;
-    childGender.textContent = `Gender: ${child.gender}`;
-  });
+  return childCard;
 }
