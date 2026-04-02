@@ -28,6 +28,20 @@ function validateChild(name, birthDate, height, weight, gender) {
   return null;
 }
 //
+childList.addEventListener("click", (e) => {
+  const card = e.target.closest(".child-card");
+  if (!card) return;
+
+  const child = children.find((c) => c.id == card.dataset.id);
+
+  selectedCard = child;
+
+  childName.textContent = `Name: ${child.name}`;
+  childBirth.textContent = `Birth Date: ${child.dob}`;
+  childHeight.textContent = `Height: ${child.height}`;
+  childWeight.textContent = `Weight: ${child.weight}`;
+  childGender.textContent = `Gender: ${child.gender}`;
+});
 
 // Handle click on Add button: show input form and save new child
 addBtn.addEventListener("click", () => {
