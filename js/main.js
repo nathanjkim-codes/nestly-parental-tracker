@@ -15,9 +15,6 @@ const childHeight = document.querySelector(".child-height");
 const childWeight = document.querySelector(".child-weight");
 const childGender = document.querySelector(".child-gender");
 
-const editBtn = document.querySelector(".edit-btn");
-const deleteBtn = document.querySelector(".delete-btn");
-
 // Validation function
 function validateChild(name, birthDate, height, weight, gender) {
   if (!name.trim()) return "Name is required";
@@ -27,12 +24,12 @@ function validateChild(name, birthDate, height, weight, gender) {
   if (!gender) return "Gender is required";
   return null;
 }
-//
+//// Display selected child info when card is clicked
 childList.addEventListener("click", (e) => {
   const card = e.target.closest(".child-card");
   if (!card) return;
 
-  const child = children.find((c) => c.id == card.dataset.id);
+  const child = children.find((c) => c.id === Number(card.dataset.id));
 
   selectedCard = child;
 
@@ -41,6 +38,16 @@ childList.addEventListener("click", (e) => {
   childHeight.textContent = `Height: ${child.height}`;
   childWeight.textContent = `Weight: ${child.weight}`;
   childGender.textContent = `Gender: ${child.gender}`;
+
+  const editBtn = document.createElement("button");
+  editBtn.textContent = "Edit";
+  editBtn.classList.add("edit-button");
+  const deleteBtn = document.createElement("button");
+  deleteBtn.textContent = "Delete";
+  deleteBtn.classList.add("del-button");
+
+  card.appendChild(editBtn);
+  card.appendChild(deleteBtn);
 });
 
 // Handle click on Add button: show input form and save new child
@@ -85,9 +92,18 @@ addBtn.addEventListener("click", () => {
   });
 });
 
-// Add click event listener tothe Edit button
+// Add click event listener to the Edit button
 editBtn.addEventListener("click", () => {
-  // Populate the input fields iwth the selected card's data
+  // Populate the input fields with the selected card's data
+  const {
+    inputWrapper,
+    nameInput,
+    dobInput,
+    heightInput,
+    weightInput,
+    genderSelect,
+  } = createInputWrapper();
+
   nameInput.value = selectedCard.name;
   dobInput.value = selectedCard.birth;
   heightInput.value = selectedCard.height;
