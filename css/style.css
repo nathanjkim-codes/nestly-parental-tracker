@@ -1,0 +1,29 @@
+#dashboard {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  border-radius: 15px;
+  gap: 10px;
+  height: 100vh;
+  padding: 20px;
+}
+
+.card {
+  background-color: rgb(252, 210, 210);
+  border-radius: 15px;
+}
+
+.growth-chart {
+  background-color: rgb(210, 210, 253);
+  border-radius: 15px;
+}
+
+.today-tip {
+  background-color: rgb(245, 245, 206);
+  border-radius: 15px;
+}
+
+.milestone {
+  background-color: rgb(252, 214, 252);
+  border-radius: 15px;
+}
