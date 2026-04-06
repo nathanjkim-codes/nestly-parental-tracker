@@ -17,7 +17,7 @@
 }
 
 .card {
-  background-color: rgb(252, 210, 210);
+  background-color: rgb(253, 24, 24);
   border-radius: 15px;
   text-align: center;
   padding-top: 60px;
@@ -33,16 +33,39 @@
 }
 
 .growth-chart {
-  background-color: rgb(210, 210, 253);
+  background-color: rgb(70, 70, 250);
+  font-family: "OkMallangW", sans-serif;
+  font-size: 24px;
   border-radius: 15px;
+}
+
+#growth-chart {
+  text-align: left;
+  padding-top: 20px;
+  padding-left: 20px;
 }
 
 .today-tip {
-  background-color: rgb(245, 245, 206);
+  background-color: rgb(255, 255, 61);
+  font-family: "OkMallangW", sans-serif;
+  font-size: 24px;
   border-radius: 15px;
 }
 
+#today-tip {
+  text-align: left;
+  padding-top: 20px;
+  padding-left: 20px;
+}
 .milestone {
-  background-color: rgb(252, 214, 252);
+  background-color: rgb(252, 92, 252);
+  font-family: "OkMallangW", sans-serif;
+  font-size: 24px;
   border-radius: 15px;
+}
+
+#milestone-timeline {
+  text-align: left;
+  padding-top: 20px;
+  padding-left: 20px;
 }
