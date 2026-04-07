@@ -49,7 +49,7 @@ body {
 }
 
 .card {
-  background: linear-gradient(135deg, #90caf9, #e3f2fd);
+  background: linear-gradient(135deg, #d7edff, #e3f2fd);
   border-radius: 15px;
   text-align: center;
   padding-top: 40px;
@@ -66,39 +66,39 @@ body {
 }
 
 .growth-chart {
-  background: linear-gradient(135deg, #81c784, #e8f5e9);
+  background: linear-gradient(135deg, #d0fdd2, #e8f5e9);
   font-family: "OkMallangW", sans-serif;
   border-radius: 15px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 #growth-chart {
-  text-align: left;
+  text-align: center;
   padding-left: 10px;
   font-size: 24px;
 }
 
 .today-tip {
-  background: linear-gradient(135deg, #fff176, #fff8e1);
+  background: linear-gradient(135deg, #faf6d2, #fff8e1);
   font-family: "OkMallangW", sans-serif;
   border-radius: 15px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 #today-tip {
-  text-align: left;
+  text-align: center;
   font-size: 24px;
   padding-left: 10px;
 }
 .milestone {
-  background: linear-gradient(135deg, #ce93d8, #f3e5f5);
+  background: linear-gradient(135deg, #f6e0fa, #f3e5f5);
   font-family: "OkMallangW", sans-serif;
   border-radius: 15px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 #milestone-timeline {
-  text-align: left;
+  text-align: center;
   font-size: 24px;
   padding-left: 10px;
 }
