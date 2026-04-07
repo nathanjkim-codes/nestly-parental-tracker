@@ -17,11 +17,11 @@
 }
 
 .card {
-  background-color: #e3f2fd;
+  background: linear-gradient(135deg, #90caf9, #e3f2fd);
   border-radius: 15px;
   text-align: center;
-  padding-top: 60px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding-top: 40px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 #childProfile h3 {
@@ -34,42 +34,39 @@
 }
 
 .growth-chart {
-  background-color: #e8f5e9;
+  background: linear-gradient(135deg, #81c784, #e8f5e9);
   font-family: "OkMallangW", sans-serif;
-  font-size: 24px;
   border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 #growth-chart {
   text-align: left;
-  padding-top: 20px;
-  padding-left: 20px;
+  padding-left: 10px;
+  font-size: 24px;
 }
 
 .today-tip {
-  background-color: #fff8e1;
+  background: linear-gradient(135deg, #fff176, #fff8e1);
   font-family: "OkMallangW", sans-serif;
-  font-size: 24px;
   border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 #today-tip {
   text-align: left;
-  padding-top: 20px;
-  padding-left: 20px;
+  font-size: 24px;
+  padding-left: 10px;
 }
 .milestone {
-  background-color: #f3e5f5;
+  background: linear-gradient(135deg, #ce93d8, #f3e5f5);
   font-family: "OkMallangW", sans-serif;
-  font-size: 24px;
   border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 #milestone-timeline {
   text-align: left;
-  padding-top: 20px;
-  padding-left: 20px;
+  font-size: 24px;
+  padding-left: 10px;
 }
