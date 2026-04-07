@@ -6,6 +6,38 @@
   font-display: swap;
 }
 
+body {
+  margin: 0;
+  font-family: "OkMallangW", sans-serif;
+}
+
+/* HEADER */
+.top-bar {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  background-color: #1976d2;
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header-left .logo {
+  max-height: 200px;
+  width: auto;
+}
+
+.header-center {
+  margin: 0;
+  font-size: 16px;
+}
+
+.header-right {
+  display: flex;
+  gap: 10px;
+}
+
 #dashboard {
   display: grid;
   grid-template-columns: 1fr 1fr;
