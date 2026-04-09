@@ -1,0 +1,104 @@
+@font-face {
+  font-family: "OkMallangW";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/2603-1@1.0/OkMallangW-Regular.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-display: swap;
+}
+
+body {
+  margin: 0;
+  font-family: "OkMallangW", sans-serif;
+}
+
+/* HEADER */
+.top-bar {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  background-color: #1976d2;
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header-left .logo {
+  max-height: 200px;
+  width: auto;
+}
+
+.header-center {
+  margin: 0;
+  font-size: 16px;
+}
+
+.header-right {
+  display: flex;
+  gap: 10px;
+}
+
+#dashboard {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  border-radius: 15px;
+  gap: 10px;
+  height: 100vh;
+  padding: 20px;
+}
+
+.card {
+  background: linear-gradient(135deg, #d7edff, #e3f2fd);
+  border-radius: 15px;
+  text-align: center;
+  padding-top: 40px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+#childProfile h3 {
+  font-family: "OkMallangW", sans-serif;
+  font-size: 24px;
+}
+
+#childProfile p {
+  font-family: "OkMallangW", sans-serif;
+}
+
+.growth-chart {
+  background: linear-gradient(135deg, #d0fdd2, #e8f5e9);
+  font-family: "OkMallangW", sans-serif;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+#growth-chart {
+  text-align: center;
+  padding-left: 10px;
+  font-size: 24px;
+}
+
+.today-tip {
+  background: linear-gradient(135deg, #faf6d2, #fff8e1);
+  font-family: "OkMallangW", sans-serif;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+#today-tip {
+  text-align: center;
+  font-size: 24px;
+  padding-left: 10px;
+}
+.milestone {
+  background: linear-gradient(135deg, #f6e0fa, #f3e5f5);
+  font-family: "OkMallangW", sans-serif;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+#milestone-timeline {
+  text-align: center;
+  font-size: 24px;
+  padding-left: 10px;
+}
