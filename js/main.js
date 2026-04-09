@@ -34,7 +34,7 @@ childList.addEventListener("click", (e) => {
   selectedCard = child;
 
   childName.textContent = `Name: ${child.name}`;
-  childBirth.textContent = `Birth Date: ${child.dob}`;
+  childBirth.textContent = `Birth Date: ${child.birth}`;
   childHeight.textContent = `Height: ${child.height}`;
   childWeight.textContent = `Weight: ${child.weight}`;
   childGender.textContent = `Gender: ${child.gender}`;
