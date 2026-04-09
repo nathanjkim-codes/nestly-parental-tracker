@@ -41,11 +41,50 @@
       <section class="card growth-chart" id="growth-chart">
         <h3>Growth Over Time</h3>
       </section>
-      <section class="card records-form" id="records-form">
+
+      <section class="card record-form" id="record-form">
         <h3>Add New Record</h3>
+
+        <form id="growth-record-form">
+          <label for="record-date">Date</label>
+          <input type="date" id="record-date" required />
+
+          <label for="height-ft">Height (ft / in)</label>
+          <div class="height-input-group">
+            <input
+              type="number"
+              id="height-ft"
+              placeholder="ft"
+              min="0"
+              required
+            />
+            <input
+              type="number"
+              id="height-in"
+              placeholder="in"
+              min="0"
+              required
+            />
+          </div>
+
+          <label for="record-weight">Weight (lbs)</label>
+          <input
+            type="number"
+            id="record-weight"
+            step="0.1"
+            min="0"
+            placeholder="e.g. 35.0"
+            required
+          />
+          <button type="submit" class="save-record-btn">+ Add Record</button>
+        </form>
       </section>
+
       <section class="card records-list" id="records-list">
         <h3>Growth Records</h3>
+        <div id="records-container">
+          <p class="empty-message">No records yet.</p>
+        </div>
       </section>
     </main>
 
