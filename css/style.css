@@ -1,0 +1,52 @@
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  height: 90px;
+  padding: 0 20px;
+  color: rgb(241, 241, 241);
+  background-color: rgb(5, 2, 29);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  display: block;
+  height: 85px;
+}
+
+.logo-text {
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin: 0;
+  margin-left: -32px;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  background-color: rgb(37, 36, 49);
+  background: linear-gradient(135deg, rgb(30, 29, 41), rgb(50, 48, 70));
+}
+
+#dashboard {
+  display: grid;
+  gap: 5px;
+  grid-template-columns: 1fr 1.3fr;
+  grid-template-rows: 1fr 1fr;
+  margin: 5px;
+}
+
+.card {
+  background-color: rgb(30, 29, 41);
+  border-radius: 7px;
+  border: 1px solid rgb(55, 54, 65);
+  padding: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  color: rgb(241, 241, 241);
+}
