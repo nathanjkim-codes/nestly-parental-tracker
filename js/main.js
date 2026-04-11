@@ -4,11 +4,24 @@ import { createInputWrapper, createChildCard } from "./ui.js";
 // Data storage
 let selectedCard = null;
 
-// Main UI elements
-
+// Header controls
 const addBtn = document.querySelector(".add-btn"); // Button to add new child
+const listBtn = document.querySelector(".list-btn");
+
+// Child list
 const childList = document.getElementById("child-list"); // Container for displaying child card
 
+// Record form
+const growthRecordForm = document.getElementById("growth-record-form"); // Form for adding new growth record
+const recordDateInput = document.getElementById("record-date"); // Input for record date
+const heightFtInput = document.getElementById("height-ft"); // Input for height (feet)
+const heightInInput = document.getElementById("height-in"); // Input for height (inches)
+const recordWeightInput = document.getElementById("record-weight"); // Input for weight (lbs)
+
+// Records list
+const recordsContainer = document.getElementById("records-container"); // Container to render growth records
+
+// Child profile display
 const childName = document.querySelector(".child-name");
 const childBirth = document.querySelector(".child-birth");
 const childHeight = document.querySelector(".child-height");
