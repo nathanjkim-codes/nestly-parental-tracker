@@ -5,7 +5,7 @@ import { createInputWrapper, createChildCard } from "./ui.js";
 let selectedCard = null;
 
 // Main UI elements
-const dashboard = document.getElementById("dashboard"); // Main dashboard container
+
 const addBtn = document.querySelector(".add-btn"); // Button to add new child
 const childList = document.getElementById("child-list"); // Container for displaying child card
 
@@ -38,16 +38,6 @@ childList.addEventListener("click", (e) => {
   childHeight.textContent = `Height: ${child.height}`;
   childWeight.textContent = `Weight: ${child.weight}`;
   childGender.textContent = `Gender: ${child.gender}`;
-
-  const editBtn = document.createElement("button");
-  editBtn.textContent = "Edit";
-  editBtn.classList.add("edit-button");
-  const deleteBtn = document.createElement("button");
-  deleteBtn.textContent = "Delete";
-  deleteBtn.classList.add("del-button");
-
-  card.appendChild(editBtn);
-  card.appendChild(deleteBtn);
 });
 
 // Handle click on Add button: show input form and save new child
@@ -90,35 +80,4 @@ addBtn.addEventListener("click", () => {
     const childCard = createChildCard(child);
     childList.appendChild(childCard);
   });
-});
-
-// Add click event listener to the Edit button
-editBtn.addEventListener("click", () => {
-  // Populate the input fields with the selected card's data
-  const {
-    inputWrapper,
-    nameInput,
-    dobInput,
-    heightInput,
-    weightInput,
-    genderSelect,
-  } = createInputWrapper();
-
-  nameInput.value = selectedCard.name;
-  dobInput.value = selectedCard.birth;
-  heightInput.value = selectedCard.height;
-  weightInput.value = selectedCard.weight;
-  genderInput.value = selectedCard.gender;
-
-  const cardContent = selectedCard.element.querySelector(".card-content");
-  // Check if the Save button does not exist inside this card
-  if (!cardContent.querySelector(".save-btn")) {
-    // Create a new Save button
-    const saveButton = document.createElement("button");
-    saveButton.classList.add("save-btn");
-    saveButton.textContent = "Save";
-
-    // Append the Save button to the card's content
-    cardContent.appendChild(saveButton);
-  }
 });
