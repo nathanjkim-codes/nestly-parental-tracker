@@ -2,7 +2,7 @@ import { children, createChild } from "./data.js";
 import { createInputWrapper, createChildCard } from "./ui.js";
 
 // Data storage
-let selectedCard = null;
+let selectedChild = null;
 
 // Header controls
 const addBtn = document.querySelector(".add-btn"); // Button to add new child
