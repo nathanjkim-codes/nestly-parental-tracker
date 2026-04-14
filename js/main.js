@@ -53,6 +53,9 @@ childList.addEventListener("click", (e) => {
   childGender.textContent = `Gender: ${child.gender}`;
 });
 
+growthRecordForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+});
 // Handle click on Add button: show input form and save new child
 addBtn.addEventListener("click", () => {
   // Destructure the returned object from createInputWrapper
