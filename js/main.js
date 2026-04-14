@@ -44,7 +44,7 @@ childList.addEventListener("click", (e) => {
 
   const child = children.find((c) => c.id === Number(card.dataset.id));
 
-  selectedCard = child;
+  selectedChild = child;
 
   childName.textContent = `Name: ${child.name}`;
   childBirth.textContent = `Birth Date: ${child.birth}`;
