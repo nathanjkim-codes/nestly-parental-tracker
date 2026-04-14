@@ -55,6 +55,11 @@ childList.addEventListener("click", (e) => {
 
 growthRecordForm.addEventListener("submit", (e) => {
   e.preventDefault();
+
+  if (!selectedChild) {
+    alert("Please select a child");
+    return;
+  }
 });
 // Handle click on Add button: show input form and save new child
 addBtn.addEventListener("click", () => {
