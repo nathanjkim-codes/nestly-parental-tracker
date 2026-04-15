@@ -29,10 +29,11 @@ const childWeight = document.querySelector(".child-weight");
 const childGender = document.querySelector(".child-gender");
 
 // Validation function
-function validateChild(name, birthDate, height, weight, gender) {
+function validateChild(name, birthDate, heightFt, heightIn, weight, gender) {
   if (!name.trim()) return "Name is required";
   if (!birthDate) return "Birth date is required";
-  if (!height) return "Height is required";
+  if (!heightFt) return "Height (ft) is required";
+  if (!heightIn) return "Height (in) is required";
   if (!weight) return "Weight is required";
   if (!gender) return "Gender is required";
   return null;
@@ -48,7 +49,7 @@ childList.addEventListener("click", (e) => {
 
   childName.textContent = `Name: ${child.name}`;
   childBirth.textContent = `Birth Date: ${child.birth}`;
-  childHeight.textContent = `Height: ${child.height}`;
+  childHeight.textContent = `Height: ${child.heightFt} ft ${child.heightIn} in`;
   childWeight.textContent = `Weight: ${child.weight}`;
   childGender.textContent = `Gender: ${child.gender}`;
 });
@@ -76,7 +77,8 @@ addBtn.addEventListener("click", () => {
     inputWrapper,
     nameInput,
     dobInput,
-    heightInput,
+    heightFtInput,
+    heightInInput,
     weightInput,
     genderSelect,
   } = createInputWrapper();
@@ -92,17 +94,32 @@ addBtn.addEventListener("click", () => {
   saveBtn.addEventListener("click", () => {
     const name = nameInput.value.trim();
     const birthDate = dobInput.value;
-    const height = heightInput.value;
+    const heightFt = heightFtInput.value;
+    const heightIn = heightInInput.value;
     const weight = weightInput.value;
     const gender = genderSelect.value;
 
-    const error = validateChild(name, birthDate, height, weight, gender);
+    const error = validateChild(
+      name,
+      birthDate,
+      heightFt,
+      heightIn,
+      weight,
+      gender,
+    );
     if (error) {
       alert(error);
       return;
     }
 
-    const child = createChild(name, birthDate, height, weight, gender);
+    const child = createChild(
+      name,
+      birthDate,
+      heightFt,
+      heightIn,
+      weight,
+      gender,
+    );
     children.push(child); // Save child to array
     inputWrapper.remove(); // Remove the input form after saving
 
