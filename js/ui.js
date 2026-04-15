@@ -3,7 +3,8 @@ export function createInputWrapper() {
   const inputWrapper = document.createElement("div");
   const nameInput = document.createElement("input");
   const dobInput = document.createElement("input");
-  const heightInput = document.createElement("input");
+  const heightFtInput = document.createElement("input");
+  const heightInInput = document.createElement("input");
   const weightInput = document.createElement("input");
   const genderSelect = document.createElement("select");
 
@@ -23,9 +24,14 @@ export function createInputWrapper() {
   dobInput.placeholder = "Enter DOB";
 
   // Create input field for child's height
-  heightInput.type = "number";
-  heightInput.name = "height[]";
-  heightInput.placeholder = "Enter Height";
+  // Create input field for child's height
+  heightFtInput.type = "number";
+  heightFtInput.name = "height ft[]";
+  heightFtInput.placeholder = "ft";
+
+  heightInInput.type = "number";
+  heightInInput.name = "height in[]";
+  heightInInput.placeholder = "in";
 
   // Createinput field for child's weight
   weightInput.type = "number";
@@ -48,7 +54,8 @@ export function createInputWrapper() {
   inputWrapper.append(
     nameInput,
     dobInput,
-    heightInput,
+    heightFtInput,
+    heightInInput,
     weightInput,
     genderSelect,
   );
@@ -56,7 +63,8 @@ export function createInputWrapper() {
     inputWrapper,
     nameInput,
     dobInput,
-    heightInput,
+    heightFtInput,
+    heightInInput,
     weightInput,
     genderSelect,
   };
