@@ -68,6 +68,8 @@ growthRecordForm.addEventListener("submit", (e) => {
     date: recordDateInput.value,
   };
 
+  selectedChild.growthRecords.push(record);
+
   console.log(record);
 });
 // Handle click on Add button: show input form and save new child
