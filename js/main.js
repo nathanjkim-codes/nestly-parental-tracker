@@ -60,6 +60,14 @@ growthRecordForm.addEventListener("submit", (e) => {
     alert("Please select a child");
     return;
   }
+  const record = {
+    heightFt: Number(heightFtInput.value),
+    heightIn: Number(heightInInput.value),
+    weight: Number(recordWeightInput.value),
+    date: recordDateInput.value,
+  };
+
+  console.log(record);
 });
 // Handle click on Add button: show input form and save new child
 addBtn.addEventListener("click", () => {
