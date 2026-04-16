@@ -28,6 +28,9 @@ const childHeight = document.querySelector(".child-height");
 const childWeight = document.querySelector(".child-weight");
 const childGender = document.querySelector(".child-gender");
 
+// Get empty state message element
+const emptyMessage = document.querySelector("empty-message");
+
 // Validation function
 function validateChild(name, birthDate, heightFt, heightIn, weight, gender) {
   if (!name.trim()) return "Name is required";
@@ -38,7 +41,7 @@ function validateChild(name, birthDate, heightFt, heightIn, weight, gender) {
   if (!gender) return "Gender is required";
   return null;
 }
-//// Display selected child info when card is clicked
+// Display selected child info when card is clicked
 childList.addEventListener("click", (e) => {
   const card = e.target.closest(".child-card");
   if (!card) return;
@@ -59,6 +62,11 @@ childList.addEventListener("click", (e) => {
 function renderGrowthRecords(child) {
   const recordList = document.getElementById("records-container");
   recordList.innerHTML = "";
+  if (child.growthRecords.length === 0) {
+    emptyMessage.style.display = "block";
+  } else {
+    emptyMessage.style.display = "none";
+  }
   const recordItem = document.createElement("div");
   recordItem.textContent = `Date: ${record.date}, Height: ${record.heightFt} ft ${record.heightIn} in, Weight: ${record.weight} lbs`;
   recordList.appendChild(recordItem);
