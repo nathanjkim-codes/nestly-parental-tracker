@@ -52,7 +52,16 @@ childList.addEventListener("click", (e) => {
   childHeight.textContent = `Height: ${child.heightFt} ft ${child.heightIn} in`;
   childWeight.textContent = `Weight: ${child.weight}`;
   childGender.textContent = `Gender: ${child.gender}`;
+
+  renderGrowthRecords(child);
 });
+function renderGrowthRecords(child) {
+  const recordList = document.getElementById("records-container");
+  recordList.innerHTML = "";
+  const recordItem = document.createElement("div");
+  recordItem.textContent = `Date: ${record.date}, Height: ${record.heightFt} ft ${record.heightIn} in, Weight: ${record.weight} lbs`;
+  recordList.appendchild(recordItem);
+}
 
 growthRecordForm.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -72,6 +81,7 @@ growthRecordForm.addEventListener("submit", (e) => {
 
   console.log(record);
 });
+
 // Handle click on Add button: show input form and save new child
 addBtn.addEventListener("click", () => {
   // Destructure the returned object from createInputWrapper
