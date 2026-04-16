@@ -11,8 +11,8 @@ export function createInputWrapper() {
   inputWrapper.classList.add("input-wrapper");
   nameInput.classList.add("name-input"); // Class for styling name input
   dobInput.classList.add("dob-input"); // Class for styling dob input
-  heightFtInput = classList.add("height-ft-input"); // Class for styling height ft input
-  heightInInput = classList.add("height-in-input"); // Class for styling height in input
+  heightFtInput.classList.add("height-ft-input"); // Class for styling height ft input
+  heightInInput.classList.add("height-in-input"); // Class for styling height in input
   genderSelect.classList.add("gender-select"); // Class for styling gender input
 
   // Create input field for child's name
