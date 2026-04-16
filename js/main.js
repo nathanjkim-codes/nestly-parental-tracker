@@ -55,12 +55,13 @@ childList.addEventListener("click", (e) => {
 
   renderGrowthRecords(child);
 });
+
 function renderGrowthRecords(child) {
   const recordList = document.getElementById("records-container");
   recordList.innerHTML = "";
   const recordItem = document.createElement("div");
   recordItem.textContent = `Date: ${record.date}, Height: ${record.heightFt} ft ${record.heightIn} in, Weight: ${record.weight} lbs`;
-  recordList.appendchild(recordItem);
+  recordList.appendChild(recordItem);
 }
 
 growthRecordForm.addEventListener("submit", (e) => {
