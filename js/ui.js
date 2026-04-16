@@ -26,7 +26,6 @@ export function createInputWrapper() {
   dobInput.placeholder = "Enter DOB";
 
   // Create input field for child's height
-  // Create input field for child's height
   heightFtInput.type = "number";
   heightFtInput.name = "height ft[]";
   heightFtInput.placeholder = "ft";
