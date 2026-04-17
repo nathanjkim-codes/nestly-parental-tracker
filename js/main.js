@@ -66,10 +66,13 @@ function renderGrowthRecords(child) {
     emptyMessage.style.display = "block";
   } else {
     emptyMessage.style.display = "none";
+
+    child.growthRecord.forEach(function (record) {
+      const recordItem = document.createElement("div");
+      recordItem.textContent = `Date: ${record.date}, Height: ${record.heightFt} ft ${record.heightIn} in, Weight: ${record.weight} lbs`;
+      recordList.appendChild(recordItem);
+    });
   }
-  const recordItem = document.createElement("div");
-  recordItem.textContent = `Date: ${record.date}, Height: ${record.heightFt} ft ${record.heightIn} in, Weight: ${record.weight} lbs`;
-  recordList.appendChild(recordItem);
 }
 
 growthRecordForm.addEventListener("submit", (e) => {
