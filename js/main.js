@@ -90,6 +90,7 @@ growthRecordForm.addEventListener("submit", (e) => {
   };
 
   selectedChild.growthRecords.push(record);
+  renderGrowthRecords(selectedChild);
 
   console.log(record);
 });
