@@ -29,7 +29,7 @@ const childWeight = document.querySelector(".child-weight");
 const childGender = document.querySelector(".child-gender");
 
 // Get empty state message element
-const emptyMessage = document.querySelector("empty-message");
+const emptyMessage = document.querySelector(".empty-message");
 
 // Validation function
 function validateChild(name, birthDate, heightFt, heightIn, weight, gender) {
@@ -67,7 +67,7 @@ function renderGrowthRecords(child) {
   } else {
     emptyMessage.style.display = "none";
 
-    child.growthRecord.forEach(function (record) {
+    child.growthRecords.forEach(function (record) {
       const recordItem = document.createElement("div");
       recordItem.textContent = `Date: ${record.date}, Height: ${record.heightFt} ft ${record.heightIn} in, Weight: ${record.weight} lbs`;
       recordList.appendChild(recordItem);
