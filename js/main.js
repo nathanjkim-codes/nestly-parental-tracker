@@ -11,6 +11,7 @@ const listBtn = document.querySelector(".list-btn");
 // Child list
 const childList = document.getElementById("child-list"); // Container for displaying child card
 
+//
 function loadChildren() {
   const childrenData = localStorage.getItem("children");
 
@@ -20,6 +21,16 @@ function loadChildren() {
     children.length = 0;
     children.push(...savedChildren);
   }
+}
+
+//
+function renderChildren() {
+  childList.innerHTML = "";
+
+  children.forEach((child) => {
+    const card = createChildCard(child);
+    childList.appendChild(card);
+  });
 }
 
 // Record form
