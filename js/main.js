@@ -1,6 +1,16 @@
 import { children, createChild } from "./data.js";
 import { createInputWrapper, createChildCard } from "./ui.js";
 
+// Data storage
+let selectedChild = null;
+
+// Header controls
+const addBtn = document.querySelector(".add-btn"); // Button to add new child
+const listBtn = document.querySelector(".list-btn");
+
+// Child list
+const childList = document.getElementById("child-list"); // Container for displaying child card
+
 function loadChildren() {
   const childrenData = localStorage.getItem("children");
 
@@ -11,18 +21,6 @@ function loadChildren() {
     children.push(...savedChildren);
   }
 }
-
-loadChildren();
-
-// Data storage
-let selectedChild = null;
-
-// Header controls
-const addBtn = document.querySelector(".add-btn"); // Button to add new child
-const listBtn = document.querySelector(".list-btn");
-
-// Child list
-const childList = document.getElementById("child-list"); // Container for displaying child card
 
 // Record form
 const growthRecordForm = document.getElementById("growth-record-form"); // Form for adding new growth record
