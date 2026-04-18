@@ -33,6 +33,9 @@ function renderChildren() {
   });
 }
 
+loadChildren();
+renderChildren();
+
 // Record form
 const growthRecordForm = document.getElementById("growth-record-form"); // Form for adding new growth record
 const recordDateInput = document.getElementById("record-date"); // Input for record date
