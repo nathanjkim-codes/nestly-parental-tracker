@@ -146,6 +146,9 @@ addBtn.addEventListener("click", () => {
       gender,
     );
     children.push(child); // Save child to array
+
+    localStorage.setItem("children", JSON.stringify(children));
+
     inputWrapper.remove(); // Remove the input form after saving
 
     const childCard = createChildCard(child);
