@@ -115,6 +115,7 @@ growthRecordForm.addEventListener("submit", (e) => {
   };
 
   selectedChild.growthRecords.push(record);
+  localStorage.setItem("children", JSON.stringify(children));
   renderGrowthRecords(selectedChild);
 
   console.log(record);
