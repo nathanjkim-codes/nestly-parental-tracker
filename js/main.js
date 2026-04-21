@@ -164,6 +164,8 @@ addBtn.addEventListener("click", () => {
     );
     children.push(child); // Save child to array
 
+    saveChildren();
+
     inputWrapper.remove(); // Remove the input form after saving
 
     const childCard = createChildCard(child);
