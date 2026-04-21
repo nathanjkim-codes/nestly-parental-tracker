@@ -27,7 +27,7 @@ renderChildren();
 
 // Record form
 const growthRecordForm = document.getElementById("growth-record-form"); // Form for adding new growth record
-const recordDateInput = document.geatElementById("record-date"); // Input for record date
+const recordDateInput = document.getElementById("record-date"); // Input for record date
 const heightFtInput = document.getElementById("height-ft"); // Input for height (feet)
 const heightInInput = document.getElementById("height-in"); // Input for height (inches)
 const recordWeightInput = document.getElementById("record-weight"); // Input for weight (lbs)
@@ -105,6 +105,7 @@ growthRecordForm.addEventListener("submit", (e) => {
 
   selectedChild.growthRecords.push(record);
 
+  // Save to localStorage
   saveChildren();
 
   renderGrowthRecords(selectedChild);
@@ -164,6 +165,7 @@ addBtn.addEventListener("click", () => {
     );
     children.push(child); // Save child to array
 
+    // Save to localStorage
     saveChildren();
 
     inputWrapper.remove(); // Remove the input form after saving
