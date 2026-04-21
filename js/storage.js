@@ -1,3 +1,5 @@
+import { children } from "./data.js";
+
 export function loadChildren() {
   const childrenData = localStorage.getItem("children");
   if (childrenData !== null) {
@@ -5,4 +7,8 @@ export function loadChildren() {
     children.length = 0;
     children.push(...savedChildren);
   }
+}
+
+export function saveChildren() {
+  localStorage.setItem("children", JSON.stringify(children));
 }
