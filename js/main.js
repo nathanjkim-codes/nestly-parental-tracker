@@ -1,5 +1,6 @@
 import { children, createChild } from "./data.js";
 import { createInputWrapper, createChildCard } from "./ui.js";
+import { loadChildren, saveChildren } from "./storage.js";
 
 // Data storage
 let selectedChild = null;
@@ -21,11 +22,12 @@ function renderChildren() {
   });
 }
 
+loadChildren();
 renderChildren();
 
 // Record form
 const growthRecordForm = document.getElementById("growth-record-form"); // Form for adding new growth record
-const recordDateInput = document.getElementById("record-date"); // Input for record date
+const recordDateInput = document.geatElementById("record-date"); // Input for record date
 const heightFtInput = document.getElementById("height-ft"); // Input for height (feet)
 const heightInInput = document.getElementById("height-in"); // Input for height (inches)
 const recordWeightInput = document.getElementById("record-weight"); // Input for weight (lbs)
