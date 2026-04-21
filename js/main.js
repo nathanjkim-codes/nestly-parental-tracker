@@ -12,18 +12,6 @@ const listBtn = document.querySelector(".list-btn");
 const childList = document.getElementById("child-list"); // Container for displaying child card
 
 //
-function loadChildren() {
-  const childrenData = localStorage.getItem("children");
-
-  if (childrenData !== null) {
-    const savedChildren = JSON.parse(childrenData);
-
-    children.length = 0;
-    children.push(...savedChildren);
-  }
-}
-
-//
 function renderChildren() {
   childList.innerHTML = "";
 
@@ -33,7 +21,6 @@ function renderChildren() {
   });
 }
 
-loadChildren();
 renderChildren();
 
 // Record form
@@ -115,7 +102,7 @@ growthRecordForm.addEventListener("submit", (e) => {
   };
 
   selectedChild.growthRecords.push(record);
-  localStorage.setItem("children", JSON.stringify(children));
+
   renderGrowthRecords(selectedChild);
 
   console.log(record);
@@ -172,8 +159,6 @@ addBtn.addEventListener("click", () => {
       gender,
     );
     children.push(child); // Save child to array
-
-    localStorage.setItem("children", JSON.stringify(children));
 
     inputWrapper.remove(); // Remove the input form after saving
 
