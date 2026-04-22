@@ -1,6 +1,6 @@
 import { children, createChild } from "./data.js";
 import { createInputWrapper, createChildCard } from "./ui.js";
-import { loadChildren, saveChildren } from "./storage.js";
+import { loadChildren, saveChildren, saveSelectedChildId } from "./storage.js";
 
 // Data storage
 let selectedChild = null;
@@ -70,6 +70,7 @@ childList.addEventListener("click", (e) => {
   childWeight.textContent = `Weight: ${child.weight}`;
   childGender.textContent = `Gender: ${child.gender}`;
 
+  saveSelectedChildId(child.id);
   renderGrowthRecords(child);
 });
 
