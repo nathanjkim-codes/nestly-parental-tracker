@@ -16,3 +16,7 @@ export function saveChildren() {
 export function saveSelectedChildId(id) {
   localStorage.setItem("selectedChildId", id);
 }
+
+export function restoreSelectedChild() {
+  return localStorage.getItem("selectedChildId");
+}
