@@ -1,6 +1,11 @@
 import { children, createChild } from "./data.js";
 import { createInputWrapper, createChildCard } from "./ui.js";
-import { loadChildren, saveChildren, saveSelectedChildId } from "./storage.js";
+import {
+  loadChildren,
+  saveChildren,
+  saveSelectedChildId,
+  restoreSelectedChild,
+} from "./storage.js";
 
 // Data storage
 let selectedChild = null;
@@ -24,6 +29,12 @@ function renderChildren() {
 
 loadChildren();
 renderChildren();
+
+const savedId = restoreSelectedChild();
+
+if (savedId) {
+  selectedChild = children.find((c) => c.id === Number(savedId));
+}
 
 // Record form
 const growthRecordForm = document.getElementById("growth-record-form"); // Form for adding new growth record
