@@ -30,12 +30,6 @@ function renderChildren() {
 loadChildren();
 renderChildren();
 
-const savedId = restoreSelectedChild();
-
-if (savedId) {
-  selectedChild = children.find((c) => c.id === Number(savedId));
-}
-
 // Record form
 const growthRecordForm = document.getElementById("growth-record-form"); // Form for adding new growth record
 const recordDateInput = document.getElementById("record-date"); // Input for record date
@@ -86,6 +80,13 @@ function renderSelectedChild(child) {
   childHeight.textContent = `Height: ${child.heightFt} ft ${child.heightIn} in`;
   childWeight.textContent = `Weight: ${child.weight}`;
   childGender.textContent = `Gender: ${child.gender}`;
+}
+
+const savedId = restoreSelectedChild();
+
+if (savedId) {
+  selectedChild = children.find((c) => c.id === Number(savedId));
+  renderSelectedChild(selectedChild);
 }
 
 function renderGrowthRecords(child) {
