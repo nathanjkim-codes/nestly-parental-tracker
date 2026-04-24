@@ -75,15 +75,18 @@ childList.addEventListener("click", (e) => {
 
   selectedChild = child;
 
+  renderSelectedChild(child);
+  saveSelectedChildId(child.id);
+  renderGrowthRecords(child);
+});
+
+function renderSelectedChild(child) {
   childName.textContent = `Name: ${child.name}`;
   childBirth.textContent = `Birth Date: ${child.birth}`;
   childHeight.textContent = `Height: ${child.heightFt} ft ${child.heightIn} in`;
   childWeight.textContent = `Weight: ${child.weight}`;
   childGender.textContent = `Gender: ${child.gender}`;
-
-  saveSelectedChildId(child.id);
-  renderGrowthRecords(child);
-});
+}
 
 function renderGrowthRecords(child) {
   const recordList = document.getElementById("records-container");
