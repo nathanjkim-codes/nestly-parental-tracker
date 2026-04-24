@@ -20,3 +20,9 @@ export function saveSelectedChildId(id) {
 export function restoreSelectedChild() {
   return localStorage.getItem("selectedChildId");
 }
+
+export function restoreGrowthRecords() {
+  const recordData = localStorage.getItem("growthRecords");
+  const restoreGrowthRecords = JSON.parse(recordData);
+  return restoreGrowthRecords;
+}
