@@ -38,7 +38,7 @@ const heightInInput = document.getElementById("height-in"); // Input for height 
 const recordWeightInput = document.getElementById("record-weight"); // Input for weight (lbs)
 
 // Records list
-const recordsContainer = document.getElementById("records-container"); // Container to render growth records
+const recordsList = document.getElementById("records-container"); // Container to render growth records
 
 // Child profile display
 const childName = document.querySelector(".child-name");
@@ -46,9 +46,6 @@ const childBirth = document.querySelector(".child-birth");
 const childHeight = document.querySelector(".child-height");
 const childWeight = document.querySelector(".child-weight");
 const childGender = document.querySelector(".child-gender");
-
-// Get empty state message element
-const emptyMessage = document.querySelector(".empty-message");
 
 // Validation function
 function validateChild(name, birthDate, heightFt, heightIn, weight, gender) {
@@ -87,20 +84,21 @@ const savedId = restoreSelectedChild();
 if (savedId) {
   selectedChild = children.find((c) => c.id === Number(savedId));
   renderSelectedChild(selectedChild);
+  renderGrowthRecords(selectedChild);
 }
 
 function renderGrowthRecords(child) {
-  const recordList = document.getElementById("records-container");
-  recordList.innerHTML = "";
+  recordsList.innerHTML = "";
   if (child.growthRecords.length === 0) {
-    emptyMessage.style.display = "block";
+    const emptyMessage = document.createElement("p");
+    emptyMessage.textContent = "No records yet.";
+    recordsList.appendChild(emptyMessage);
+    return;
   } else {
-    emptyMessage.style.display = "none";
-
     child.growthRecords.forEach(function (record) {
       const recordItem = document.createElement("div");
       recordItem.textContent = `Date: ${record.date}, Height: ${record.heightFt} ft ${record.heightIn} in, Weight: ${record.weight} lbs`;
-      recordList.appendChild(recordItem);
+      recordsList.appendChild(recordItem);
     });
   }
 }
