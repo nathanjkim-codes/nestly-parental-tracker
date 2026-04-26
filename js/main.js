@@ -12,7 +12,7 @@ const listBtn = document.querySelector(".list-btn");
 // Child list
 const childList = document.getElementById("child-list"); // Container for displaying child card
 
-//
+// Render all child cards to the child list
 function renderChildren() {
   childList.innerHTML = "";
 
@@ -35,6 +35,43 @@ const recordWeightInput = document.getElementById("record-weight"); // Input for
 // Child action buttons
 const editBtn = document.querySelector(".edit-child-btn"); // Handle child edit action
 const deleteBtn = document.querySelector(".delete-child-btn"); // Handle child delete action
+
+// Edit modal controls
+const editModal = document.getElementById("editModal");
+const modalContent = document.querySelector(".edit-modal-content");
+const closeModalBtn = document.querySelector(".closeModal");
+
+editBtn.addEventListener("click", () => {
+  if (!selectedChild) {
+    alert("Please select a child");
+    return;
+  }
+  editModal.style.display = "block";
+
+  const existingInputWrapper = modalContent.querySelector(".input-wrapper");
+  if (existingInputWrapper) {
+    existingInputWrapper.remove();
+  }
+
+  const {
+    inputWrapper,
+    nameInput,
+    dobInput,
+    heightFtInput,
+    heightInInput,
+    weightInput,
+    genderSelect,
+  } = createInputWrapper();
+
+  nameInput.value = selectedChild.name;
+  dobInput.value = selectedChild.birth;
+  heightFtInput.value = selectedChild.heightFt;
+  heightInInput.value = selectedChild.heightIn;
+  weightInput.value = selectedChild.weight;
+  genderSelect.value = selectedChild.gender;
+
+  modalContent.append(inputWrapper);
+});
 
 // Records list
 const recordsContainer = document.getElementById("records-container"); // Container to render growth records
