@@ -50,3 +50,17 @@ body {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   color: rgb(241, 241, 241);
 }
+
+/* Hidden state*/
+.modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Shown state */
+.modal.show {
+  display: block;
+}

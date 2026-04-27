@@ -46,7 +46,7 @@ editBtn.addEventListener("click", () => {
     alert("Please select a child");
     return;
   }
-  editModal.style.display = "block";
+  editModal.classList.add("show");
 
   const existingInputWrapper = modalContent.querySelector(".input-wrapper");
   if (existingInputWrapper) {
