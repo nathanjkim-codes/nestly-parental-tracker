@@ -5,6 +5,8 @@ import { loadChildren, saveChildren } from "./storage.js";
 // Data storage
 let selectedChild = null;
 
+let editInputs = {};
+
 // Header controls
 const addBtn = document.querySelector(".add-btn"); // Button to add new child
 const listBtn = document.querySelector(".list-btn");
@@ -68,12 +70,19 @@ editBtn.addEventListener("click", () => {
     genderSelect,
   } = createInputWrapper();
 
-  nameInput.value = selectedChild.name;
-  dobInput.value = selectedChild.birth;
-  heightFtInput.value = selectedChild.heightFt;
-  heightInInput.value = selectedChild.heightIn;
-  weightInput.value = selectedChild.weight;
-  genderSelect.value = selectedChild.gender;
+  editInputs.nameInput = nameInput;
+  editInputs.dobInput = dobInput;
+  editInputs.heightFtInput = heightFtInput;
+  editInputs.heightInInput = heightInInput;
+  editInputs.weightInput = weightInput;
+  editInputs.genderSelect = genderSelect;
+
+  editInputs.nameInput.value = selectedChild.name;
+  editInputs.dobInput.value = selectedChild.birth;
+  editInputs.heightFtInput.value = selectedChild.heightFt;
+  editInputs.heightInInput.value = selectedChild.heightIn;
+  editInputs.weightInput.value = selectedChild.weight;
+  editInputs.genderSelect.value = selectedChild.gender;
 
   modalContent.append(inputWrapper);
 });
