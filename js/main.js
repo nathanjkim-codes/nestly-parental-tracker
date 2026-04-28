@@ -81,6 +81,10 @@ function closeEditModal() {
   editModal.classList.remove("show");
 }
 
+closeModalBtn.addEventListener("click", () => {
+  closeEditModal();
+});
+
 // Records list
 const recordsContainer = document.getElementById("records-container"); // Container to render growth records
 
