@@ -85,6 +85,10 @@ closeModalBtn.addEventListener("click", () => {
   closeEditModal();
 });
 
+cancelModalBtn.addEventListener("click", () => {
+  closeEditModal();
+});
+
 // Records list
 const recordsContainer = document.getElementById("records-container"); // Container to render growth records
 
