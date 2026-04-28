@@ -40,14 +40,18 @@ const deleteBtn = document.querySelector(".delete-child-btn"); // Handle child d
 const editModal = document.getElementById("editModal");
 const modalContent = document.querySelector(".edit-modal-content");
 const closeModalBtn = document.querySelector(".closeModal");
+const cancelModalBtn = document.querySelector(".cancel-Btn");
 
 editBtn.addEventListener("click", () => {
+  // Require a selected child before editing
   if (!selectedChild) {
     alert("Please select a child");
     return;
   }
+  // Show modal
   editModal.classList.add("show");
 
+  // Remove old form instance before creating a new one
   const existingInputWrapper = modalContent.querySelector(".input-wrapper");
   if (existingInputWrapper) {
     existingInputWrapper.remove();
@@ -72,6 +76,10 @@ editBtn.addEventListener("click", () => {
 
   modalContent.append(inputWrapper);
 });
+
+function closeEditModal() {
+  editModal.classList.remove("show");
+}
 
 // Records list
 const recordsContainer = document.getElementById("records-container"); // Container to render growth records
