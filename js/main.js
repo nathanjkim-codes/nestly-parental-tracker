@@ -41,6 +41,7 @@ const editModal = document.getElementById("editModal");
 const modalContent = document.querySelector(".edit-modal-content");
 const closeModalBtn = document.querySelector(".closeModal");
 const cancelModalBtn = document.querySelector(".cancel-Btn");
+const modalSaveBtn = document.querySelector(".save-btn");
 
 editBtn.addEventListener("click", () => {
   // Require a selected child before editing
@@ -89,6 +90,14 @@ cancelModalBtn.addEventListener("click", () => {
   closeEditModal();
 });
 
+function renderSelectedChild(child) {
+  childName.textContent = `Name: ${child.name}`;
+  childBirth.textContent = `Birth Date: ${child.birth}`;
+  childHeight.textContent = `Height: ${child.heightFt} ft ${child.heightIn} in`;
+  childWeight.textContent = `Weight: ${child.weight}`;
+  childGender.textContent = `Gender: ${child.gender}`;
+}
+
 // Records list
 const recordsContainer = document.getElementById("records-container"); // Container to render growth records
 
@@ -121,11 +130,7 @@ childList.addEventListener("click", (e) => {
 
   selectedChild = child;
 
-  childName.textContent = `Name: ${child.name}`;
-  childBirth.textContent = `Birth Date: ${child.birth}`;
-  childHeight.textContent = `Height: ${child.heightFt} ft ${child.heightIn} in`;
-  childWeight.textContent = `Weight: ${child.weight}`;
-  childGender.textContent = `Gender: ${child.gender}`;
+  renderSelectedChild(child);
 
   renderGrowthRecords(child);
 });
