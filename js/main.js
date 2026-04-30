@@ -42,7 +42,7 @@ const deleteBtn = document.querySelector(".delete-child-btn"); // Handle child d
 const editModal = document.getElementById("editModal");
 const modalContent = document.querySelector(".edit-modal-content");
 const closeModalBtn = document.querySelector(".closeModal");
-const cancelModalBtn = document.querySelector(".cancel-Btn");
+const cancelModalBtn = document.querySelector(".cancel-btn");
 const modalSaveBtn = document.querySelector(".save-btn");
 
 editBtn.addEventListener("click", () => {
