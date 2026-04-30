@@ -173,6 +173,8 @@ childList.addEventListener("click", (e) => {
 
   selectedChild = child;
 
+  localStorage.setItem("selectedChildId", child.id);
+
   renderSelectedChild(child);
 
   renderGrowthRecords(child);
@@ -277,3 +279,15 @@ addBtn.addEventListener("click", () => {
     childList.appendChild(childCard);
   });
 });
+
+const selectedChildId = localStorage.getItem("selectedChildId");
+
+if (selectedChildId) {
+  const child = children.find((c) => c.id === Number(selectedChildId));
+
+  if (child) {
+    selectedChild = child;
+    renderSelectedChild(selectedChild);
+    renderGrowthRecords(selectedChild);
+  }
+}
