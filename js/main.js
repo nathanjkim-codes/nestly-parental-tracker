@@ -87,6 +87,40 @@ editBtn.addEventListener("click", () => {
   modalContent.append(inputWrapper);
 });
 
+modalSaveBtn.addEventListener("click", () => {
+  const childName = editInputs.nameInput.value.trim();
+  const childDob = editInputs.dobInput.value;
+  const childHeightFt = editInputs.heightFtInput.value;
+  const childHeightIn = editInputs.heightInInput.value;
+  const childWeight = editInputs.weightInput.value;
+  const childGender = editInputs.genderSelect.value;
+
+  const error = validateChild(
+    childName,
+    childDob,
+    childHeightFt,
+    childHeightIn,
+    childWeight,
+    childGender,
+  );
+  if (error) {
+    alert(error);
+    return;
+  }
+
+  selectedChild.name = childName;
+  selectedChild.birth = childDob;
+  selectedChild.heightFt = childHeightFt;
+  selectedChild.heightIn = childHeightIn;
+  selectedChild.weight = childWeight;
+  selectedChild.gender = childGender;
+
+  saveChildren();
+  renderSelectedChild(selectedChild);
+  renderChildren();
+  closeEditModal();
+});
+
 function closeEditModal() {
   editModal.classList.remove("show");
 }
