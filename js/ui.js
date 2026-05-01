@@ -8,6 +8,18 @@ export function createInputWrapper() {
   const weightInput = document.createElement("input");
   const genderSelect = document.createElement("select");
 
+  const nameLabel = document.createElement("label");
+  const dobLabel = document.createElement("label");
+  const heightLabel = document.createElement("label");
+  const weightLabel = document.createElement("label");
+  const genderLabel = document.createElement("label");
+
+  nameLabel.textContent = "Name:";
+  dobLabel.textContent = "Birth Date:";
+  heightLabel.textContent = "Height (ft / in):";
+  weightLabel.textContent = "Weight:";
+  genderLabel.textContent = "Gender:";
+
   inputWrapper.classList.add("input-wrapper");
   nameInput.classList.add("name-input"); // Class for styling name input
   dobInput.classList.add("dob-input"); // Class for styling dob input
@@ -34,7 +46,7 @@ export function createInputWrapper() {
   heightInInput.name = "height in[]";
   heightInInput.placeholder = "in";
 
-  // Createinput field for child's weight
+  // Create input field for child's weight
   weightInput.type = "number";
   weightInput.name = "weight[]";
   weightInput.placeholder = "Enter weight";
@@ -48,16 +60,21 @@ export function createInputWrapper() {
   options.forEach((gender) => {
     const option = document.createElement("option");
     option.value = gender.toLowerCase();
-    option.text = gender;
+    option.textContent = gender;
     genderSelect.appendChild(option);
   });
 
   inputWrapper.append(
+    nameLabel,
     nameInput,
+    dobLabel,
     dobInput,
+    heightLabel,
     heightFtInput,
     heightInInput,
+    weightLabel,
     weightInput,
+    genderLabel,
     genderSelect,
   );
   return {
