@@ -60,6 +60,7 @@ editBtn.addEventListener("click", () => {
     existingInputWrapper.remove();
   }
 
+  // Create input fields for editing
   const {
     inputWrapper,
     nameInput,
@@ -70,6 +71,7 @@ editBtn.addEventListener("click", () => {
     genderSelect,
   } = createInputWrapper();
 
+  // Store references to inputs
   editInputs.nameInput = nameInput;
   editInputs.dobInput = dobInput;
   editInputs.heightFtInput = heightFtInput;
@@ -77,6 +79,7 @@ editBtn.addEventListener("click", () => {
   editInputs.weightInput = weightInput;
   editInputs.genderSelect = genderSelect;
 
+  // Populate input fields with selected child's current data
   editInputs.nameInput.value = selectedChild.name;
   editInputs.dobInput.value = selectedChild.birth;
   editInputs.heightFtInput.value = selectedChild.heightFt;
@@ -84,10 +87,37 @@ editBtn.addEventListener("click", () => {
   editInputs.weightInput.value = selectedChild.weight;
   editInputs.genderSelect.value = selectedChild.gender;
 
+  // Add the input form to the modal
   modalContent.append(inputWrapper);
 });
 
+// Handle delete action for the selected child
+deleteBtn.addEventListener("click", () => {
+  // Ensure a child is selected before deleting
+  if (!selectedChild) {
+    alert("Please select a child");
+    return;
+  }
+
+  // Find the index of the selected child in the array
+  const childIndex = children.findIndex((c) => c.id === selectedChild.id);
+
+  // Remove the child from the array
+  children.splice(childIndex, 1);
+
+  // Reset the selected child state
+  selectedChild = null;
+
+  // Persist updated data to localStorage
+  saveChildren();
+
+  // Re-render the child list UI
+  renderChildren();
+});
+
+// Handle savingedited child data from the modal
 modalSaveBtn.addEventListener("click", () => {
+  // Retrieve updated values from input fields
   const childName = editInputs.nameInput.value.trim();
   const childDob = editInputs.dobInput.value;
   const childHeightFt = editInputs.heightFtInput.value;
@@ -95,6 +125,7 @@ modalSaveBtn.addEventListener("click", () => {
   const childWeight = editInputs.weightInput.value;
   const childGender = editInputs.genderSelect.value;
 
+  // Validate input values before saving
   const error = validateChild(
     childName,
     childDob,
@@ -105,9 +136,10 @@ modalSaveBtn.addEventListener("click", () => {
   );
   if (error) {
     alert(error);
-    return;
+    return; // Stop if validation fails
   }
 
+  // Update selected child's data
   selectedChild.name = childName;
   selectedChild.birth = childDob;
   selectedChild.heightFt = childHeightFt;
@@ -115,24 +147,33 @@ modalSaveBtn.addEventListener("click", () => {
   selectedChild.weight = childWeight;
   selectedChild.gender = childGender;
 
+  // Save updated data to localStorage
   saveChildren();
+
+  // Update UI with new data
   renderSelectedChild(selectedChild);
   renderChildren();
+
+  // Close the edit modal
   closeEditModal();
 });
 
+// Close the edit modal
 function closeEditModal() {
   editModal.classList.remove("show");
 }
 
+// Close modal when clicking the close X button
 closeModalBtn.addEventListener("click", () => {
   closeEditModal();
 });
 
+// Close modal when clicking the cancel button
 cancelModalBtn.addEventListener("click", () => {
   closeEditModal();
 });
 
+// Render selected child's profile information in the UI
 function renderSelectedChild(child) {
   childName.textContent = `Name: ${child.name}`;
   childBirth.textContent = `Birth Date: ${child.birth}`;
@@ -166,30 +207,47 @@ function validateChild(name, birthDate, heightFt, heightIn, weight, gender) {
 }
 // Display selected child info when card is clicked
 childList.addEventListener("click", (e) => {
+  // Find the closest parent element with class 'child-card'
   const card = e.target.closest(".child-card");
+
+  // If the click is not on a child card, exit early
   if (!card) return;
 
+  // Find the corresponding child data using the card's dataset id
   const child = children.find((c) => c.id === Number(card.dataset.id));
 
+  // Set the selected child
   selectedChild = child;
 
+  // Save the selected child's id to localStorage for persistence
   localStorage.setItem("selectedChildId", child.id);
 
+  // Update the UI with the selected child's profile
   renderSelectedChild(child);
 
+  // Render the selected child's growth records
   renderGrowthRecords(child);
 });
 
+// Render growth records for the selected child
 function renderGrowthRecords(child) {
   const recordList = document.getElementById("records-container");
+
+  // Clear existing records
   recordList.innerHTML = "";
+
+  // If no records exist, show empty message
   if (child.growthRecords.length === 0) {
     emptyMessage.style.display = "block";
   } else {
+    // Hide empty message if records exist
     emptyMessage.style.display = "none";
 
+    // Loop through growth records and display each one
     child.growthRecords.forEach(function (record) {
       const recordItem = document.createElement("div");
+
+      // Format record data as text
       recordItem.textContent = `Date: ${record.date}, Height: ${record.heightFt} ft ${record.heightIn} in, Weight: ${record.weight} lbs`;
       recordList.appendChild(recordItem);
     });
@@ -280,13 +338,20 @@ addBtn.addEventListener("click", () => {
   });
 });
 
+// Retrieve the previously selected child's ID from localStorage
 const selectedChildId = localStorage.getItem("selectedChildId");
 
 if (selectedChildId) {
+  // Find the child in the array that matches the stored ID
   const child = children.find((c) => c.id === Number(selectedChildId));
+  console.log("found child:", child);
 
   if (child) {
+    //Restore the selected child state
     selectedChild = child;
+    console.log("selectedChild:", selectedChild);
+
+    // Update the UI with the restored child data
     renderSelectedChild(selectedChild);
     renderGrowthRecords(selectedChild);
   }
