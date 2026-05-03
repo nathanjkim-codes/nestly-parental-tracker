@@ -113,7 +113,22 @@ deleteBtn.addEventListener("click", () => {
 
   // Re-render the child list UI
   renderChildren();
+
+  // Clear the selected child profile UI
+  clearSelectedChildUI();
 });
+
+// Clear the selected child profile and records UI
+function clearSelectedChildUI() {
+  childName.textContent = "Name:";
+  childBirth.textContent = "Birth Date:";
+  childHeight.textContent = "Height:";
+  childWeight.textContent = "Weight:";
+  childGender.textContent = "Gender:";
+
+  recordsContainer.innerHTML = "";
+  emptyMessage.style.display = "block";
+}
 
 // Handle savingedited child data from the modal
 modalSaveBtn.addEventListener("click", () => {
