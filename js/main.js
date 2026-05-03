@@ -127,6 +127,7 @@ function clearSelectedChildUI() {
   childGender.textContent = "Gender:";
 
   recordsContainer.innerHTML = "";
+  recordsContainer.appendChild(emptyMessage);
   emptyMessage.style.display = "block";
 }
 
