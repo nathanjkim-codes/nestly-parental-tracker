@@ -9,7 +9,7 @@ let editInputs = {};
 
 // Header controls
 const addBtn = document.querySelector(".add-btn"); // Button to add new child
-const listBtn = document.querySelector(".list-btn");
+const listBtn = document.querySelector(".children-btn");
 
 // Child list
 const childList = document.getElementById("child-list"); // Container for displaying child card
