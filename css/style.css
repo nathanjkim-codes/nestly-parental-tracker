@@ -64,3 +64,21 @@ body {
 .modal.show {
   display: block;
 }
+
+label {
+  color: white;
+}
+
+.input-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.child-dropdown {
+  display: none;
+}
+
+.child-dropdown.show {
+  display: block;
+}
