@@ -12,3 +12,7 @@ export function loadChildren() {
 export function saveChildren() {
   localStorage.setItem("children", JSON.stringify(children));
 }
+
+export function removeSelectedChildId() {
+  localStorage.removeItem("selectedChildId");
+}
