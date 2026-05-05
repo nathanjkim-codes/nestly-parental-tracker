@@ -9,7 +9,7 @@ import { loadChildren, saveChildren } from "./storage.js";
 // State
 // ====================================================
 let selectedChild = null;
-let editInputs = {};
+let currentInputs = {};
 let modalMode = null;
 
 // ====================================================
@@ -127,6 +127,15 @@ function openAddModal() {
     genderSelect,
   } = createInputWrapper();
 
+  currentInputs = {
+    nameInput,
+    dobInput,
+    heightFtInput,
+    heightInInput,
+    weightInput,
+    genderSelect,
+  };
+
   nameInput.value = "";
   dobInput.value = "";
   heightFtInput.value = "";
@@ -134,7 +143,7 @@ function openAddModal() {
   weightInput.value = "";
   genderSelect.value = "";
 
-  modalContent.append(inputWrapper);
+  modalContent.prepend(inputWrapper);
   modal.classList.add("show");
 }
 
@@ -187,7 +196,7 @@ editBtn.addEventListener("click", () => {
     genderSelect,
   } = createInputWrapper();
 
-  editInputs = {
+  currentInputs = {
     nameInput,
     dobInput,
     heightFtInput,
@@ -196,12 +205,12 @@ editBtn.addEventListener("click", () => {
     genderSelect,
   };
 
-  editInputs.nameInput.value = selectedChild.name;
-  editInputs.dobInput.value = selectedChild.birth;
-  editInputs.heightFtInput.value = selectedChild.heightFt;
-  editInputs.heightInInput.value = selectedChild.heightIn;
-  editInputs.weightInput.value = selectedChild.weight;
-  editInputs.genderSelect.value = selectedChild.gender;
+  currentInputs.nameInput.value = selectedChild.name;
+  currentInputs.dobInput.value = selectedChild.birth;
+  currentInputs.heightFtInput.value = selectedChild.heightFt;
+  currentInputs.heightInInput.value = selectedChild.heightIn;
+  currentInputs.weightInput.value = selectedChild.weight;
+  currentInputs.genderSelect.value = selectedChild.gender;
   console.log("edit clicked");
   console.log("modalContent:", modalContent);
   console.log("inputWrapper:", inputWrapper);
@@ -288,12 +297,12 @@ addBtn.addEventListener("click", () => {
 
 // Save edited child
 modalSaveBtn.addEventListener("click", () => {
-  const childName = editInputs.nameInput.value.trim();
-  const childDob = editInputs.dobInput.value;
-  const childHeightFt = editInputs.heightFtInput.value;
-  const childHeightIn = editInputs.heightInInput.value;
-  const childWeight = editInputs.weightInput.value;
-  const childGender = editInputs.genderSelect.value;
+  const childName = currentInputs.nameInput.value.trim();
+  const childDob = currentInputs.dobInput.value;
+  const childHeightFt = currentInputs.heightFtInput.value;
+  const childHeightIn = currentInputs.heightInInput.value;
+  const childWeight = currentInputs.weightInput.value;
+  const childGender = currentInputs.genderSelect.value;
 
   const error = validateChild(
     childName,
