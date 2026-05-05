@@ -7,6 +7,8 @@ let selectedChild = null;
 
 let editInputs = {};
 
+let modalMode = null;
+
 // Header controls
 const addBtn = document.querySelector(".add-btn"); // Button to add new child
 const listBtn = document.querySelector(".children-btn");
@@ -46,11 +48,39 @@ const editBtn = document.querySelector(".edit-child-btn"); // Handle child edit 
 const deleteBtn = document.querySelector(".delete-child-btn"); // Handle child delete action
 
 // Edit modal controls
-const editModal = document.getElementById("editModal");
+const moodal = document.getElementById("modal");
 const modalContent = document.querySelector(".edit-modal-content");
 const closeModalBtn = document.querySelector(".closeModal");
 const cancelModalBtn = document.querySelector(".cancel-btn");
 const modalSaveBtn = document.querySelector(".save-btn");
+
+function openAddmodal() {
+  let modalMode = "add";
+
+  const existingInputWrapper = modalContent.querySelector(".input-wrapper");
+  if (existingInputWrapper) {
+    existingInputWrapper.remove();
+  }
+
+  const {
+    inputwrapper,
+    nameInput,
+    dobInput,
+    heightFtInput,
+    heightInInput,
+    weightInput,
+    genderSelect,
+  } = createInputWrapper();
+
+  nameInput.value = "";
+  dobInput.value = "";
+  heightFtInput.value = "";
+  heightInInput.value = "";
+  weightInput.value = "";
+  genderSelect.value = "";
+
+  modal.classList.add("show");
+}
 
 editBtn.addEventListener("click", () => {
   // Require a selected child before editing
@@ -59,7 +89,7 @@ editBtn.addEventListener("click", () => {
     return;
   }
   // Show modal
-  editModal.classList.add("show");
+  modal.classList.add("show");
 
   // Remove old form instance before creating a new one
   const existingInputWrapper = modalContent.querySelector(".input-wrapper");
@@ -183,7 +213,7 @@ modalSaveBtn.addEventListener("click", () => {
 
 // Close the edit modal
 function closeEditModal() {
-  editModal.classList.remove("show");
+  modal.classList.remove("show");
 }
 
 // Close modal when clicking the close X button
