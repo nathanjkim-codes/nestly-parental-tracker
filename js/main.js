@@ -48,14 +48,14 @@ const editBtn = document.querySelector(".edit-child-btn"); // Handle child edit 
 const deleteBtn = document.querySelector(".delete-child-btn"); // Handle child delete action
 
 // Edit modal controls
-const moodal = document.getElementById("modal");
+const modal = document.getElementById("modal");
 const modalContent = document.querySelector(".edit-modal-content");
 const closeModalBtn = document.querySelector(".closeModal");
 const cancelModalBtn = document.querySelector(".cancel-btn");
 const modalSaveBtn = document.querySelector(".save-btn");
 
-function openAddmodal() {
-  let modalMode = "add";
+function openAddModal() {
+  modalMode = "add";
 
   const existingInputWrapper = modalContent.querySelector(".input-wrapper");
   if (existingInputWrapper) {
@@ -63,7 +63,7 @@ function openAddmodal() {
   }
 
   const {
-    inputwrapper,
+    inputWrapper,
     nameInput,
     dobInput,
     heightFtInput,
@@ -78,6 +78,8 @@ function openAddmodal() {
   heightInInput.value = "";
   weightInput.value = "";
   genderSelect.value = "";
+
+  modalContent.append(inputWrapper);
 
   modal.classList.add("show");
 }
