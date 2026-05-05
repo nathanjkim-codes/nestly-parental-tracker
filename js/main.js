@@ -1,20 +1,20 @@
-// ==========================
+// ====================================================
 // Imports
-// ==========================
+// ====================================================
 import { children, createChild } from "./data.js";
 import { createInputWrapper, createChildCard } from "./ui.js";
 import { loadChildren, saveChildren } from "./storage.js";
 
-// ==========================
+// ====================================================
 // State
-// ==========================
+// ====================================================
 let selectedChild = null;
 let editInputs = {};
 let modalMode = null;
 
-// ==========================
+// ====================================================
 // DOM Selectors
-// ==========================
+// ====================================================
 
 // Header controls
 const addBtn = document.querySelector(".add-btn");
@@ -37,7 +37,7 @@ const deleteBtn = document.querySelector(".delete-child-btn");
 
 // Modal controls
 const modal = document.getElementById("modal");
-const modalContent = document.querySelector(".edit-modal-content");
+const modalContent = document.querySelector(".modal-content");
 const closeModalBtn = document.querySelector(".closeModal");
 const cancelModalBtn = document.querySelector(".cancel-btn");
 const modalSaveBtn = document.querySelector(".save-btn");
@@ -55,9 +55,9 @@ const childGender = document.querySelector(".child-gender");
 // Empty state
 const emptyMessage = document.querySelector(".empty-message");
 
-// ==========================
+// ====================================================
 // Render Functions
-// ==========================
+// ====================================================
 function renderChildren() {
   childList.innerHTML = "";
 
@@ -93,9 +93,9 @@ function renderGrowthRecords(child) {
   }
 }
 
-// ==========================
+// ====================================================
 // Validation
-// ==========================
+// ====================================================
 function validateChild(name, birthDate, heightFt, heightIn, weight, gender) {
   if (!name.trim()) return "Name is required";
   if (!birthDate) return "Birth date is required";
@@ -106,9 +106,9 @@ function validateChild(name, birthDate, heightFt, heightIn, weight, gender) {
   return null;
 }
 
-// ==========================
+// ====================================================
 // Modal Logic
-// ==========================
+// ====================================================
 function openAddModal() {
   modalMode = "add";
 
@@ -142,9 +142,9 @@ function closeEditModal() {
   modal.classList.remove("show");
 }
 
-// ==========================
+// ====================================================
 // Event Listeners
-// ==========================
+// ====================================================
 
 // Toggle child list
 listBtn.addEventListener("click", () => {
@@ -202,8 +202,11 @@ editBtn.addEventListener("click", () => {
   editInputs.heightInInput.value = selectedChild.heightIn;
   editInputs.weightInput.value = selectedChild.weight;
   editInputs.genderSelect.value = selectedChild.gender;
-
+  console.log("edit clicked");
+  console.log("modalContent:", modalContent);
+  console.log("inputWrapper:", inputWrapper);
   modalContent.append(inputWrapper);
+  console.log("modalContent children:", modalContent.children);
 });
 
 // Delete child
@@ -345,9 +348,9 @@ growthRecordForm.addEventListener("submit", (e) => {
 closeModalBtn.addEventListener("click", closeEditModal);
 cancelModalBtn.addEventListener("click", closeEditModal);
 
-// ==========================
+// ====================================================
 // Initialization
-// ==========================
+// ====================================================
 loadChildren();
 renderChildren();
 
