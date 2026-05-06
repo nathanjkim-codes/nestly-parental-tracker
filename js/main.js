@@ -111,7 +111,6 @@ function validateChild(name, birthDate, heightFt, heightIn, weight, gender) {
 // ====================================================
 function openAddModal() {
   modalMode = "add";
-
   const existingInputWrapper = modalContent.querySelector(".input-wrapper");
   if (existingInputWrapper) {
     existingInputWrapper.remove();
@@ -147,35 +146,8 @@ function openAddModal() {
   modal.classList.add("show");
 }
 
-function closeEditModal() {
-  modal.classList.remove("show");
-}
-
-// ====================================================
-// Event Listeners
-// ====================================================
-
-// Toggle child list
-listBtn.addEventListener("click", () => {
-  childList.classList.toggle("show");
-});
-
-// Select child (event delegation)
-childList.addEventListener("click", (e) => {
-  const card = e.target.closest(".child-card");
-  if (!card) return;
-
-  const child = children.find((c) => c.id === Number(card.dataset.id));
-  selectedChild = child;
-
-  localStorage.setItem("selectedChildId", child.id);
-
-  renderSelectedChild(child);
-  renderGrowthRecords(child);
-});
-
-// Edit child
-editBtn.addEventListener("click", () => {
+function openEditModal() {
+  modalMode = "edit";
   if (!selectedChild) {
     alert("Please select a child");
     return;
@@ -213,6 +185,38 @@ editBtn.addEventListener("click", () => {
   currentInputs.genderSelect.value = selectedChild.gender;
 
   modalContent.prepend(inputWrapper);
+}
+
+function closeModal() {
+  modal.classList.remove("show");
+}
+
+// ====================================================
+// Event Listeners
+// ====================================================
+
+// Toggle child list
+listBtn.addEventListener("click", () => {
+  childList.classList.toggle("show");
+});
+
+// Select child (event delegation)
+childList.addEventListener("click", (e) => {
+  const card = e.target.closest(".child-card");
+  if (!card) return;
+
+  const child = children.find((c) => c.id === Number(card.dataset.id));
+  selectedChild = child;
+
+  localStorage.setItem("selectedChildId", child.id);
+
+  renderSelectedChild(child);
+  renderGrowthRecords(child);
+});
+
+// Edit child
+editBtn.addEventListener("click", () => {
+  openEditModal();
 });
 
 // Delete child
@@ -235,8 +239,6 @@ deleteBtn.addEventListener("click", () => {
 
 // Add child
 addBtn.addEventListener("click", () => {
-  modalMode = "add";
-
   openAddModal();
 });
 
@@ -261,19 +263,32 @@ modalSaveBtn.addEventListener("click", () => {
     alert(error);
     return;
   }
+  if (modalMode === "add") {
+    const child = createChild(
+      childName,
+      childDob,
+      childHeightFt,
+      childHeightIn,
+      childWeight,
+      childGender,
+    );
 
-  selectedChild.name = childName;
-  selectedChild.birth = childDob;
-  selectedChild.heightFt = childHeightFt;
-  selectedChild.heightIn = childHeightIn;
-  selectedChild.weight = childWeight;
-  selectedChild.gender = childGender;
+    children.push(child);
+  }
+  if (modalMode === "edit") {
+    selectedChild.name = childName;
+    selectedChild.birth = childDob;
+    selectedChild.heightFt = childHeightFt;
+    selectedChild.heightIn = childHeightIn;
+    selectedChild.weight = childWeight;
+    selectedChild.gender = childGender;
 
+    renderSelectedChild(selectedChild);
+  }
   saveChildren();
-  renderSelectedChild(selectedChild);
   renderChildren();
 
-  closeEditModal();
+  closeModal();
 });
 
 // Growth record
@@ -299,8 +314,8 @@ growthRecordForm.addEventListener("submit", (e) => {
 });
 
 // Modal close
-closeModalBtn.addEventListener("click", closeEditModal);
-cancelModalBtn.addEventListener("click", closeEditModal);
+closeModalBtn.addEventListener("click", closeModal);
+cancelModalBtn.addEventListener("click", closeModal);
 
 // ====================================================
 // Initialization
