@@ -211,11 +211,8 @@ editBtn.addEventListener("click", () => {
   currentInputs.heightInInput.value = selectedChild.heightIn;
   currentInputs.weightInput.value = selectedChild.weight;
   currentInputs.genderSelect.value = selectedChild.gender;
-  console.log("edit clicked");
-  console.log("modalContent:", modalContent);
-  console.log("inputWrapper:", inputWrapper);
-  modalContent.append(inputWrapper);
-  console.log("modalContent children:", modalContent.children);
+
+  modalContent.prepend(inputWrapper);
 });
 
 // Delete child
@@ -238,61 +235,9 @@ deleteBtn.addEventListener("click", () => {
 
 // Add child
 addBtn.addEventListener("click", () => {
-  const {
-    inputWrapper,
-    nameInput,
-    dobInput,
-    heightFtInput,
-    heightInInput,
-    weightInput,
-    genderSelect,
-  } = createInputWrapper();
+  modalMode = "add";
 
-  childList.appendChild(inputWrapper);
-
-  const saveBtn = document.createElement("button");
-  saveBtn.textContent = "Save";
-  saveBtn.classList.add("save-btn");
-  inputWrapper.appendChild(saveBtn);
-
-  saveBtn.addEventListener("click", () => {
-    const name = nameInput.value.trim();
-    const birthDate = dobInput.value;
-    const heightFt = heightFtInput.value;
-    const heightIn = heightInInput.value;
-    const weight = weightInput.value;
-    const gender = genderSelect.value;
-
-    const error = validateChild(
-      name,
-      birthDate,
-      heightFt,
-      heightIn,
-      weight,
-      gender,
-    );
-    if (error) {
-      alert(error);
-      return;
-    }
-
-    const child = createChild(
-      name,
-      birthDate,
-      heightFt,
-      heightIn,
-      weight,
-      gender,
-    );
-
-    children.push(child);
-    saveChildren();
-
-    inputWrapper.remove();
-
-    const childCard = createChildCard(child);
-    childList.appendChild(childCard);
-  });
+  openAddModal();
 });
 
 // Save edited child
