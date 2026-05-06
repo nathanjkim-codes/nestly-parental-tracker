@@ -93,6 +93,17 @@ function renderGrowthRecords(child) {
   }
 }
 
+function clearSelectedChildUI() {
+  childName.textContent = "name: -";
+  childBirth.textContent = "Birth Date: -";
+  childHeight.textContent = "Height: -";
+  childWeight.textContent = "Weight: -";
+  childGender.textContent = "Gender: -";
+
+  recordsContainer.innerHTML = "";
+  emptyMessage.style.display = "block";
+}
+
 // ====================================================
 // Validation
 // ====================================================
