@@ -45,6 +45,9 @@ const modalSaveBtn = document.querySelector(".save-btn");
 // Records UI
 const recordsContainer = document.getElementById("records-container");
 
+// Chart UI
+const growthChartCanvas = document.getElementById("growthChart");
+
 // Child profile display
 const childName = document.querySelector(".child-name");
 const childBirth = document.querySelector(".child-birth");
@@ -329,8 +332,34 @@ closeModalBtn.addEventListener("click", closeModal);
 cancelModalBtn.addEventListener("click", closeModal);
 
 // ====================================================
+// Chart Functions
+// ====================================================
+function renderGrowthChart() {
+  new Chart(growthChartCanvas, {
+    type: "line",
+
+    data: {
+      labels: ["Jan", "Feb", "Mar"],
+
+      datasets: [
+        {
+          label: "Height",
+          data: [38, 40, 42],
+        },
+
+        {
+          label: "Weight",
+          data: [30, 35, 40],
+        },
+      ],
+    },
+  });
+}
+
+// ====================================================
 // Initialization
 // ====================================================
+
 loadChildren();
 renderChildren();
 
