@@ -334,22 +334,42 @@ cancelModalBtn.addEventListener("click", closeModal);
 // ====================================================
 // Chart Functions
 // ====================================================
+function getHeightChartData() {
+  return selectedChild.growthRecords.map(
+    (record) => record.heightFt * 12 + record.heightIn,
+  );
+}
+
+function getWeightChartData() {
+  return selectedChild.growthRecords.map((record) => record.weight);
+}
+
+function getChartLabels() {
+  return selectedChild.growthRecords.map((record) => record.date);
+}
+
 function renderGrowthChart() {
+  if (!selectedChild) return;
+
+  const chartHeight = getHeightChartData();
+  const chartWeight = getWeightChartData();
+  const chartLabels = getChartLabels();
+
   new Chart(growthChartCanvas, {
     type: "line",
 
     data: {
-      labels: ["Jan", "Feb", "Mar"],
+      labels: chartLabels,
 
       datasets: [
         {
           label: "Height",
-          data: [38, 40, 42],
+          data: chartHeight,
         },
 
         {
           label: "Weight",
-          data: [30, 35, 40],
+          data: chartWeight,
         },
       ],
     },
