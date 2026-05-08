@@ -226,6 +226,7 @@ childList.addEventListener("click", (e) => {
 
   renderSelectedChild(child);
   renderGrowthRecords(child);
+  renderGrowthChart();
 });
 
 // Edit child
@@ -325,6 +326,7 @@ growthRecordForm.addEventListener("submit", (e) => {
 
   saveChildren();
   renderGrowthRecords(selectedChild);
+  renderGrowthChart();
 });
 
 // Modal close
@@ -392,5 +394,6 @@ if (selectedChildId) {
     selectedChild = child;
     renderSelectedChild(selectedChild);
     renderGrowthRecords(selectedChild);
+    renderGrowthChart();
   }
 }
