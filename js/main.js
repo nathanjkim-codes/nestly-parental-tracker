@@ -11,6 +11,7 @@ import { loadChildren, saveChildren } from "./storage.js";
 let selectedChild = null;
 let currentInputs = {};
 let modalMode = null;
+let growthChart = null;
 
 // ====================================================
 // DOM Selectors
