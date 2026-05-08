@@ -353,12 +353,15 @@ function getChartLabels() {
 
 function renderGrowthChart() {
   if (!selectedChild) return;
+  if (growthChart) {
+    growthChart.destroy();
+  }
 
   const chartHeight = getHeightChartData();
   const chartWeight = getWeightChartData();
   const chartLabels = getChartLabels();
 
-  new Chart(growthChartCanvas, {
+  growthChart = new Chart(growthChartCanvas, {
     type: "line",
 
     data: {
