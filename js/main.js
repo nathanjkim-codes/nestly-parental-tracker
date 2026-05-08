@@ -108,6 +108,13 @@ function clearSelectedChildUI() {
   emptyMessage.style.display = "block";
 }
 
+function clearChartUI() {
+  if (growthChart) {
+    growthChart.destroy();
+    growthChart = null;
+  }
+}
+
 // ====================================================
 // Validation
 // ====================================================
@@ -251,6 +258,7 @@ deleteBtn.addEventListener("click", () => {
   renderChildren();
 
   clearSelectedChildUI();
+  clearChartUI();
 });
 
 // Add child
