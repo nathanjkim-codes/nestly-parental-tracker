@@ -79,7 +79,20 @@ label {
 .input-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
+}
+
+.input-wrapper label {
+  font-weight: 600;
+}
+
+.input-wrapper input,
+.input-wrapper select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid rgb(70, 70, 80);
+  box-sizing: border-box;
 }
 
 .child-dropdown {
