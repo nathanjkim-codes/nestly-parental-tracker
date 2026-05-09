@@ -51,6 +51,22 @@ body {
   color: rgb(241, 241, 241);
 }
 
+#growth-record-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 360px;
+}
+
+.height-input-group {
+  display: flex;
+  gap: 10px;
+}
+
+.height-input-group input {
+  flex: 1;
+}
+
 /* Modal */
 .modal {
   display: none;
