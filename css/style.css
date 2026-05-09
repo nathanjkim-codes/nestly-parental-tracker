@@ -51,13 +51,20 @@ body {
   color: rgb(241, 241, 241);
 }
 
-/* Hidden state*/
+/* Modal */
 .modal {
   display: none;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+
+  width: 420px;
+  background-color: rgb(30, 29, 41);
+  border: 1px solid rgb(55, 54, 65);
+  border-radius: 10px;
+  padding: 24px;
+  z-index: 1000;
 }
 
 /* Shown state */
