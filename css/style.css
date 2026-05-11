@@ -45,17 +45,26 @@ body {
 
 .card {
   background-color: rgb(30, 29, 41);
-  border-radius: 7px;
+  border-radius: 12px;
   border: 1px solid rgb(55, 54, 65);
-  padding: 16px;
+  padding: 24px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   color: rgb(241, 241, 241);
+}
+
+.child-profile p {
+  line-height: 1.8;
+  margin: 8px 0;
+}
+
+.growth-chart {
+  min-height: 340px;
 }
 
 #growth-record-form {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
   max-width: 360px;
 }
 
