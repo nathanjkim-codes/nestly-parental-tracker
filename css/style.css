@@ -39,9 +39,9 @@ body {
   display: grid;
   grid-template-columns: minmax(320px, 0.9fr) minmax(520px, 1.4fr);
   grid-template-rows: auto auto;
-  gap: 14px;
-  padding: 20px;
-  max-width: 1600px;
+  gap: 12px;
+  padding: 12px;
+  max-width: 1200px;
   margin: 0 auto;
   box-sizing: border-box;
 }
@@ -61,13 +61,27 @@ body {
   color: rgb(241, 241, 241);
 }
 
+.card-content {
+  max-width: 360px;
+}
+
+.child-profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.profile-actions {
+  margin-top: 20px;
+}
+
 .child-profile p {
   line-height: 1.8;
   margin: 8px 0;
 }
 
 .growth-chart {
-  min-height: 300px;
+  min-height: 220px;
 }
 
 #growth-record-form {
@@ -75,6 +89,12 @@ body {
   flex-direction: column;
   gap: 10px;
   max-width: 360px;
+  margin-top: 8px;
+}
+
+.record-form {
+  display: flex;
+  flex-direction: column;
 }
 
 .height-input-group {
