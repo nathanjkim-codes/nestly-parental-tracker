@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: space-between;
 
-  height: 90px;
+  height: 75px;
   padding: 0 20px;
   color: rgb(241, 241, 241);
   background-color: rgb(5, 2, 29);
@@ -16,7 +16,7 @@
 
 .logo {
   display: block;
-  height: 85px;
+  height: 72px;
 }
 
 .logo-text {
@@ -29,6 +29,7 @@
 
 body {
   font-family: "Inter", sans-serif;
+  font-size: 17px;
   margin: 0;
   background-color: rgb(37, 36, 49);
   background: linear-gradient(135deg, rgb(30, 29, 41), rgb(50, 48, 70));
@@ -38,16 +39,24 @@ body {
   display: grid;
   grid-template-columns: minmax(320px, 0.9fr) minmax(520px, 1.4fr);
   grid-template-rows: auto auto;
-  gap: 16px;
-  padding: 16px;
+  gap: 14px;
+  padding: 20px;
+  max-width: 1600px;
+  margin: 0 auto;
   box-sizing: border-box;
+}
+
+.card h3 {
+  font-size: 1.45rem;
+  margin-top: 0;
+  margin-bottom: 18px;
 }
 
 .card {
   background-color: rgb(30, 29, 41);
   border-radius: 12px;
   border: 1px solid rgb(55, 54, 65);
-  padding: 24px;
+  padding: 20px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   color: rgb(241, 241, 241);
 }
@@ -58,7 +67,7 @@ body {
 }
 
 .growth-chart {
-  min-height: 340px;
+  min-height: 300px;
 }
 
 #growth-record-form {
