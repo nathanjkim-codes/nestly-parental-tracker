@@ -92,6 +92,10 @@ body {
   margin-top: 8px;
 }
 
+#growth-record-form input {
+  box-sizing: border-box;
+}
+
 .record-form {
   display: flex;
   flex-direction: column;
@@ -104,6 +108,7 @@ body {
 
 .height-input-group input {
   flex: 1;
+  min-width: 0;
 }
 
 /* Modal */
