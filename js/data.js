@@ -15,21 +15,15 @@ export function createChild(name, birth, heightFt, heightIn, weight, gender) {
   };
 }
 
-// Create first growth record when child is added
 export function createInitialGrowthRecord(heightFt, heightIn, weight) {
-  // Get today's date in YYYY-MM-DD format
-  const today = new Date().toISOString().split("T")[0];
+  const today = new Date().toISOString().spilit("T")[0];
 
-  // Create initial growth record object
   const initialRecord = {
     date: today,
-
-    // Convert input values from string to number
     heightFt: Number(heightFt),
     heightIn: Number(heightIn),
     weight: Number(weight),
   };
 
-  // Return created growth record
   return initialRecord;
 }
