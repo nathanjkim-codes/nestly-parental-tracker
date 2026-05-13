@@ -1,7 +1,7 @@
 // ====================================================
 // Imports
 // ====================================================
-import { children, createChild } from "./data.js";
+import { children, createChild, createInitialGrowthRecord } from "./data.js";
 import { createInputWrapper, createChildCard } from "./ui.js";
 import { loadChildren, saveChildren } from "./storage.js";
 
@@ -296,6 +296,14 @@ modalSaveBtn.addEventListener("click", () => {
       childWeight,
       childGender,
     );
+
+    const initialRecord = createInitialGrowthRecord(
+      childHeightFt,
+      childHeightIn,
+      childWeight,
+    );
+
+    child.growthRecords.push(initialRecord);
 
     children.push(child);
   }
