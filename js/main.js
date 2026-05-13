@@ -28,8 +28,8 @@ const childList = document.getElementById("child-list");
 // Record form
 const growthRecordForm = document.getElementById("growth-record-form");
 const recordDateInput = document.getElementById("record-date");
-const heightFtInput = document.getElementById("height-ft");
-const heightInInput = document.getElementById("height-in");
+const recordHeightFtInput = document.getElementById("height-ft");
+const recordHeightInInput = document.getElementById("height-in");
 const recordWeightInput = document.getElementById("record-weight");
 
 // Child action buttons
@@ -333,13 +333,18 @@ growthRecordForm.addEventListener("submit", (e) => {
   }
 
   const record = {
-    heightFt: Number(heightFtInput.value),
-    heightIn: Number(heightInInput.value),
+    heightFt: Number(recordHeightFtInput.value),
+    heightIn: Number(recordHeightInInput.value),
     weight: Number(recordWeightInput.value),
     date: recordDateInput.value,
   };
 
   selectedChild.growthRecords.push(record);
+
+  recordHeightFtInput.value = "";
+  recordHeightInInput.value = "";
+  recordWeightInput.value = "";
+  recordDateInput.value = "";
 
   saveChildren();
   renderGrowthRecords(selectedChild);
