@@ -90,8 +90,11 @@ function renderGrowthRecords(child) {
 
     child.growthRecords.forEach(function (record) {
       const recordItem = document.createElement("div");
+      const deleteRecordBtn = document.createElement("button");
 
       recordItem.textContent = `Date: ${record.date}, Height: ${record.heightFt} ft ${record.heightIn} in, Weight: ${record.weight} lbs`;
+      deleteRecordBtn.textContent = `X`;
+      recordItem.appendChild(deleteRecordBtn);
       recordList.appendChild(recordItem);
     });
   }
@@ -333,7 +336,7 @@ growthRecordForm.addEventListener("submit", (e) => {
   }
 
   const record = {
-    heightFt: Number(recordHeightFtInput.value),
+    heightFt: Number(eightFtInput.value),
     heightIn: Number(recordHeightInInput.value),
     weight: Number(recordWeightInput.value),
     date: recordDateInput.value,
