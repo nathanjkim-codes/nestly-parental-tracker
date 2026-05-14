@@ -88,12 +88,21 @@ function renderGrowthRecords(child) {
   } else {
     emptyMessage.style.display = "none";
 
-    child.growthRecords.forEach(function (record) {
+    child.growthRecords.forEach(function (record, index) {
       const recordItem = document.createElement("div");
       const deleteRecordBtn = document.createElement("button");
 
       recordItem.textContent = `Date: ${record.date}, Height: ${record.heightFt} ft ${record.heightIn} in, Weight: ${record.weight} lbs`;
       deleteRecordBtn.textContent = `X`;
+
+      deleteRecordBtn.addEventListener("click", () => {
+        child.growthRecords.splice(index, 1);
+
+        saveChildren();
+        renderGrowthRecords(child);
+        renderGrowthChart();
+      });
+
       recordItem.appendChild(deleteRecordBtn);
       recordList.appendChild(recordItem);
     });
