@@ -92,6 +92,19 @@ body {
   margin-top: 8px;
 }
 
+.record-delete-btn {
+  background: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  margin-left: 50px;
+  font-size: 14px;
+}
+
+.record-delete-btn:hover {
+  color: red;
+}
+
 #growth-record-form input {
   box-sizing: border-box;
 }
