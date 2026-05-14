@@ -88,7 +88,7 @@ function renderGrowthRecords(child) {
   } else {
     emptyMessage.style.display = "none";
 
-    child.growthRecords.forEach(function (record, index) {
+    child.growthRecords.forEach((record, index) => {
       const recordItem = document.createElement("div");
       const deleteRecordBtn = document.createElement("button");
 
@@ -96,6 +96,7 @@ function renderGrowthRecords(child) {
       deleteRecordBtn.textContent = `X`;
 
       deleteRecordBtn.addEventListener("click", () => {
+        console.log("X clicked");
         child.growthRecords.splice(index, 1);
 
         saveChildren();
