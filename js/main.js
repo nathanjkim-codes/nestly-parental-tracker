@@ -94,6 +94,7 @@ function renderGrowthRecords(child) {
 
       recordItem.textContent = `Date: ${record.date}, Height: ${record.heightFt} ft ${record.heightIn} in, Weight: ${record.weight} lbs`;
       deleteRecordBtn.textContent = `X`;
+      deleteRecordBtn.classList.add("record-delete-btn");
 
       deleteRecordBtn.addEventListener("click", () => {
         console.log("X clicked");
