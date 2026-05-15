@@ -164,6 +164,15 @@ body {
 
 #growth-record-form input {
   box-sizing: border-box;
+  background-color: rgb(37, 36, 49);
+  color: rgb(241, 241, 241);
+  border: 1px solid rgb(70, 70, 80);
+  border-radius: 6px;
+  padding: 10px;
+}
+
+#growth-record-form input::placeholder {
+  color: rgb(160, 160, 170);
 }
 
 .record-form {
@@ -244,6 +253,7 @@ label {
   width: 100%;
   padding: 10px;
   border-radius: 6px;
+
   border: 1px solid rgb(70, 70, 80);
   box-sizing: border-box;
 }
