@@ -129,6 +129,14 @@ body {
   margin-top: 8px;
 }
 
+.record-item {
+  border: 1px solid rgb(55, 54, 65);
+  border-radius: 10px;
+  background-color: rgb(30, 29, 41);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+}
+
 .record-delete-btn {
   background: transparent;
   border: none;
