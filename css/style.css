@@ -129,6 +129,12 @@ body {
   margin-top: 8px;
 }
 
+#records-container {
+  max-height: 190px;
+  overflow-y: auto;
+  padding-right: 6px;
+}
+
 .record-item {
   border: 1px solid rgb(55, 54, 65);
   border-radius: 10px;
