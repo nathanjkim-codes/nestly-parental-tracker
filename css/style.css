@@ -89,7 +89,7 @@ body {
   background-color: rgb(30, 29, 41);
   border-radius: 12px;
   border: 1px solid rgb(55, 54, 65);
-  padding: 20px;
+  padding: 17px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   color: rgb(241, 241, 241);
 }
@@ -126,7 +126,7 @@ body {
   flex-direction: column;
   gap: 10px;
   max-width: 360px;
-  margin-top: 8px;
+  margin-top: px;
 }
 
 #records-container {
@@ -168,7 +168,7 @@ body {
   color: rgb(241, 241, 241);
   border: 1px solid rgb(70, 70, 80);
   border-radius: 6px;
-  padding: 10px;
+  padding: 6px;
 }
 
 #growth-record-form input::placeholder {
