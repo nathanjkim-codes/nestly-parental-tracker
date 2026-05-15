@@ -136,6 +136,11 @@ body {
 }
 
 .record-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
   border: 1px solid rgb(55, 54, 65);
   border-radius: 10px;
   background-color: rgb(30, 29, 41);
@@ -144,11 +149,12 @@ body {
 }
 
 .record-delete-btn {
+  flex-shrink: 0;
   background: transparent;
   border: none;
   color: white;
   cursor: pointer;
-  margin-left: 50px;
+  margin-left: 12px;
   font-size: 14px;
 }
 
