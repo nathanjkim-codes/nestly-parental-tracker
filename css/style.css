@@ -14,6 +14,39 @@
   align-items: center;
 }
 
+.header-right {
+  position: relative;
+  background-color: rgb(30, 29, 41);
+}
+
+.child-dropdown {
+  position: absolute;
+  top: 45px;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  min-width: 180px;
+  background-color: rgb(30, 29, 41);
+  border: 1px solid rgb(55, 54, 65);
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  padding: 10px;
+  gap: 6px;
+  z-index: 100;
+}
+
+.child-card {
+  padding: 10px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: rgb(241, 241, 241);
+  transition: background-color 0.2s ease;
+}
+
+.child-card:hover {
+  background-color: rgb(45, 44, 58);
+}
+
 .logo {
   display: block;
   height: 72px;
