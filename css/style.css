@@ -258,10 +258,6 @@ label {
   box-sizing: border-box;
 }
 
-.child-dropdown {
-  display: none;
-}
-
 .child-dropdown.show {
   display: block;
 }
