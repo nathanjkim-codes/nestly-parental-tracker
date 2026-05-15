@@ -91,6 +91,7 @@ function renderGrowthRecords(child) {
     child.growthRecords.forEach((record, index) => {
       const recordItem = document.createElement("div");
       const deleteRecordBtn = document.createElement("button");
+      recordItem.classList.add("record-item");
 
       recordItem.textContent = `Date: ${record.date}, Height: ${record.heightFt} ft ${record.heightIn} in, Weight: ${record.weight} lbs`;
       deleteRecordBtn.textContent = `X`;

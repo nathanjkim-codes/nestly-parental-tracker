@@ -117,6 +117,10 @@ body {
   min-height: 220px;
 }
 
+#growthChart {
+  margin-top: 32px;
+}
+
 #growth-record-form {
   display: flex;
   flex-direction: column;
