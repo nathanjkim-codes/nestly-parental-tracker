@@ -347,7 +347,7 @@ growthRecordForm.addEventListener("submit", (e) => {
   }
 
   const record = {
-    heightFt: Number(eightFtInput.value),
+    heightFt: Number(heightFtInput.value),
     heightIn: Number(recordHeightInInput.value),
     weight: Number(recordWeightInput.value),
     date: recordDateInput.value,
