@@ -1,36 +1,33 @@
 # Nestly MVP
 
-Nestly is a child growth tracking app project that I built while learning frontend development.
+Nestly is a child growth tracking app that I built while learning frontend development.
 
 This was my first larger JavaScript project.  
-While building this project, I learned about:
+Through this project, I learned about:
 
 - State management
-- Data structure
-- Rendering flow
-- LocalStorage
+- Data flow
 - DOM manipulation
+- LocalStorage
+- Rendering
 - Debugging
 - Refactoring
-- Git and branch management
-
-This project helped me move from simply writing code to thinking more about frontend structure and application flow.
+- Git branch management
 
 ---
 
-# Features
+## Features
 
 - Add child profiles
 - Save growth records
 - Select child cards
-- LocalStorage persistence
-- Dynamic rendering
+- Dynamic UI rendering
 - Modal UI system
-- Growth history tracking
+- LocalStorage persistence
 
 ---
 
-# Tech Stack
+## Tech Stack
 
 - HTML
 - CSS
@@ -39,7 +36,7 @@ This project helped me move from simply writing code to thinking more about fron
 
 ---
 
-# Project Structure
+## Project Structure
 
 ```text
 data.js
@@ -50,7 +47,7 @@ storage.js
 
 ---
 
-# Data Structure
+## Data Structure
 
 Each child contains their own growth records.
 
@@ -58,8 +55,6 @@ Each child contains their own growth records.
 {
   id: 1,
   name: "Emma",
-  birth: "2022-01-01",
-  gender: "female",
   growthRecords: [
     {
       date: "2026-01-01",
@@ -71,58 +66,86 @@ Each child contains their own growth records.
 }
 ```
 
-This helped me learn:
+This helped me understand:
 
 - One-to-many relationships
-- Nested arrays and objects
+- Nested data structures
 - Grouping related data together
 
 ---
 
-# Data Flow
+## Data Flow
 
 ```text
 User Input
 → Create Object
-→ Push Into Array
+→ Update Array
 → Save to LocalStorage
 → Re-render UI
 ```
 
-This was one of the biggest concepts I learned during this project.
-
-I learned that:
+One important lesson I learned was:
 
 > Updating data does not automatically update the UI.
 
-After changing data, I needed to manually re-render the interface.
+After changing data, I needed to re-render the interface manually.
 
 ---
 
-# State Management
+## State Management
 
-I used:
+I used several state variables to control the application flow.
 
 ```js
 let selectedChild = null;
+let currentInputs = {};
+let modalMode = null;
+let growthChart = null;
 ```
 
-to track the currently selected child.
+### Purpose
+
+| State           | Purpose                                           |
+| --------------- | ------------------------------------------------- |
+| `selectedChild` | Tracks the currently selected child               |
+| `currentInputs` | Stores modal input elements                       |
+| `modalMode`     | Controls whether the modal is in add or edit mode |
+| `growthChart`   | Stores the current chart instance                 |
 
 This helped me understand:
 
 - State-driven UI
-- In-memory state
-- Persisted state
-- Rendering flow
+- UI flow management
+- Dynamic rendering
+- Modal behavior
+- Managing application state across different features
 
 ---
 
-# Rendering Strategy
+## Architecture & UI Lessons
 
-I used a full re-render approach.
+### Separation of Concerns
 
-Steps:
+I separated responsibilities into different files.
+
+| File         | Responsibility          |
+| ------------ | ----------------------- |
+| `data.js`    | Data creation & storage |
+| `ui.js`      | UI rendering            |
+| `main.js`    | Event handling & logic  |
+| `storage.js` | LocalStorage functions  |
+
+This improved:
+
+- Readability
+- Organization
+- Maintainability
+
+---
+
+### Rendering Strategy
+
+I used a full re-render approach:
 
 1. Clear container
 2. Read latest data
@@ -137,54 +160,17 @@ This helped prevent:
 
 ---
 
-# LocalStorage Lessons
-
-I learned that LocalStorage only stores strings.
-
-Because of this, I needed:
-
-```js
-JSON.stringify();
-JSON.parse();
-```
-
-I also learned the difference between:
-
-- Current application state
-- Persisted saved state
-
----
-
-# Separation of Concerns
-
-I separated responsibilities into different files.
-
-| File         | Responsibility          |
-| ------------ | ----------------------- |
-| `data.js`    | Data creation & storage |
-| `ui.js`      | UI rendering            |
-| `main.js`    | Event handling & logic  |
-| `storage.js` | LocalStorage functions  |
-
-This helped improve:
-
-- Readability
-- Organization
-- Maintainability
-
----
-
-# Event Delegation
+### Event Delegation
 
 Instead of attaching event listeners to every card individually, I used event delegation on parent containers.
 
-This helped simplify dynamic card handling.
+This simplified handling dynamic elements.
 
 ---
 
-# Modal System
+### Reusable Modal System
 
-At first, the modal was only for editing.
+At first, the modal was only used for editing.
 
 Later, I refactored it into a reusable modal system for both:
 
@@ -201,9 +187,9 @@ This helped reduce duplicated logic.
 
 ---
 
-# Debugging & Refactoring Lessons
+## Debugging Lessons
 
-## Saving Selected Child ID Correctly
+### Saving Selected Child ID Correctly
 
 Originally I wrote:
 
@@ -222,11 +208,11 @@ saveSelectedChildId(child.id);
 This taught me:
 
 - Save only necessary data
-- Function arguments should match function responsibility
+- Match function arguments with function responsibility
 
 ---
 
-## Empty Message Bug
+### Empty Message Bug
 
 Problem:
 
@@ -253,7 +239,7 @@ This taught me:
 
 ---
 
-## Add Child Input Bug
+### Add Child Input Bug
 
 Problem:
 
@@ -275,15 +261,15 @@ Solution:
 This taught me:
 
 - UI containers need clear responsibilities
-- Structure matters as projects grow
+- Structure becomes important as projects grow
 
 ---
 
-# Research & Learning Process
+## Research & Learning Process
 
-During this project, I searched and learned many frontend concepts.
+During this project, I researched many frontend concepts.
 
-Some topics I researched:
+Some topics I searched:
 
 | Topic                 | Reason                     |
 | --------------------- | -------------------------- |
@@ -297,11 +283,10 @@ Some topics I researched:
 | `classList.toggle`    | Manage modal UI state      |
 | `JSON.stringify`      | Save LocalStorage data     |
 | `event delegation`    | Handle dynamic elements    |
-| `form validation`     | Validate user input        |
 
 ---
 
-# Git & Branch Lessons
+## Git & Branch Lessons
 
 This project also taught me many Git lessons.
 
@@ -315,16 +300,14 @@ Because this was my first larger project, I created many branches while experime
 
 Over time, some branches became very different from each other.
 
-This caused confusion later.
-
-Problems I experienced:
+This caused problems later:
 
 - Too many branches
 - Difficult merges
 - Refactoring conflicts
 - Losing track of latest stable code
 
-Eventually, I learned that:
+This project taught me that:
 
 > Good Git organization is also part of software development.
 
@@ -333,15 +316,10 @@ I also learned:
 - Keep branches smaller
 - Merge more often
 - Avoid very large refactors across many branches
-- Use one stable branch as the main source of truth
-
-One of the biggest lessons was:
-
-> I learned that messy Git branches can become difficult to manage later.
 
 ---
 
-# Mistakes I Made
+## Mistakes I Made
 
 During early development, I accidentally committed:
 
@@ -359,7 +337,7 @@ This taught me:
 
 ---
 
-# Biggest Takeaway
+## Biggest Takeaway
 
 The biggest lesson from building this MVP was:
 
@@ -375,5 +353,16 @@ It is also about:
 - Maintainability
 - Debugging
 - Problem solving
+
+## Future Improvements
+
+Things I want to improve in the future:
+
+- Add growth charts and dashboard analytics
+- Improve responsive UI design
+- Add backend database support
+- Add user authentication
+- Rebuild parts of the app using React
+- Improve overall project architecture
 
 This project helped me better understand how frontend applications are built and organized.
