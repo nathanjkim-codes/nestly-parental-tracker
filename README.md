@@ -29,6 +29,16 @@ Through this project, I learned about:
 
 ---
 
+## Problems I Solved
+
+- Keeping UI synchronized with application state
+- Preventing duplicate UI rendering
+- Managing modal state across add/edit flows
+- Persisting data with LocalStorage
+- Organizing growing frontend code structure
+
+---
+
 ## Tech Stack
 
 - HTML
@@ -356,11 +366,15 @@ It is also about:
 - Debugging
 - Problem solving
 
+---
+
 ## Future Improvements
 
 - Improve responsive UI
 - Improve dashboard visuals
 - Add better chart interactions
+
+---
 
 ## Next Version: Nestly V2
 
