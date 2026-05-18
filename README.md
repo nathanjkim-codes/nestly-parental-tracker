@@ -2,6 +2,8 @@
 
 Nestly is a child growth tracking app that I built while learning frontend development.
 
+Nestly MVP was my first project-based learning application while studying frontend development.
+
 This was my first larger JavaScript project.  
 Through this project, I learned about:
 
@@ -356,13 +358,24 @@ It is also about:
 
 ## Future Improvements
 
-Things I want to improve in the future:
+- Improve responsive UI
+- Improve dashboard visuals
+- Add better chart interactions
 
-- Add growth charts and dashboard analytics
-- Improve responsive UI design
-- Add backend database support
+## Next Version: Nestly V2
+
+Nestly V2 will be a more production-ready version of this project.
+
+The goal of V2 is to move from a frontend-only LocalStorage app to a full-stack parenting dashboard.
+
+Planned improvements:
+
+- Rebuild the frontend with React
 - Add user authentication
-- Rebuild parts of the app using React
-- Improve overall project architecture
-
-This project helped me better understand how frontend applications are built and organized.
+- Store child and growth data in a real database
+- Create backend APIs for children and growth records
+- Add dashboard analytics and charts
+- Improve responsive UI design
+- Add daily check-in records
+- Add basic health tracking such as temperature and symptoms
+- Explore AI-powered parenting insights in the future
