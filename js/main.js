@@ -57,7 +57,7 @@ const childWeight = document.querySelector(".child-weight");
 const childGender = document.querySelector(".child-gender");
 
 // Empty state
-const emptyMessage = document.querySelector(".empty-message");
+const emptyRecordsMessage = document.querySelector(".empty-records-message");
 
 // ====================================================
 // Render Functions
@@ -84,9 +84,9 @@ function renderGrowthRecords(child) {
   recordList.innerHTML = "";
 
   if (child.growthRecords.length === 0) {
-    emptyMessage.style.display = "block";
+    emptyRecordsMessage.style.display = "block";
   } else {
-    emptyMessage.style.display = "none";
+    emptyRecordsMessage.style.display = "none";
 
     child.growthRecords.forEach((record, index) => {
       const recordItem = document.createElement("div");
@@ -120,7 +120,7 @@ function clearSelectedChildUI() {
   childGender.textContent = "Gender: -";
 
   recordsContainer.innerHTML = "";
-  emptyMessage.style.display = "block";
+  emptyRecordsMessage.style.display = "block";
 }
 
 function clearChartUI() {
