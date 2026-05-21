@@ -58,6 +58,8 @@ const childGender = document.querySelector(".child-gender");
 
 // Empty state
 const emptyRecordsMessage = document.querySelector(".empty-records-message");
+const emptyProfileMessage = document.querySelector(".empty-profile-message");
+const profileDetails = document.querySelector(".profile-details");
 
 // ====================================================
 // Render Functions
