@@ -56,8 +56,10 @@ const childHeight = document.querySelector(".child-height");
 const childWeight = document.querySelector(".child-weight");
 const childGender = document.querySelector(".child-gender");
 
-// Empty state
+// Records empty state
 const emptyRecordsMessage = document.querySelector(".empty-records-message");
+
+// Profile Empty
 const emptyProfileMessage = document.querySelector(".empty-profile-message");
 const profileDetails = document.querySelector(".profile-details");
 
@@ -74,6 +76,15 @@ function renderChildren() {
 }
 
 function renderSelectedChild(child) {
+  if (!child) {
+    emptyProfileMessage.style.display = "block";
+    profileDetails.style.display = "none";
+    return;
+  }
+
+  emptyProfileMessage.style.display = "none";
+  profileDetails.style.display = "block";
+
   childName.textContent = `Name: ${child.name}`;
   childBirth.textContent = `Birth Date: ${child.birth}`;
   childHeight.textContent = `Height: ${child.heightFt} ft ${child.heightIn} in`;
@@ -274,7 +285,7 @@ deleteBtn.addEventListener("click", () => {
   saveChildren();
   renderChildren();
 
-  clearSelectedChildUI();
+  renderSelectedChild(selectedChild);
   clearChartUI();
 });
 
