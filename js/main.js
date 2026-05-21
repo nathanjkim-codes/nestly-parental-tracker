@@ -359,12 +359,13 @@ growthRecordForm.addEventListener("submit", (e) => {
     alert("Please select a child");
     return;
   }
+  const formattedDate = new Date(recordDateInput.value).toLocaleDateString();
 
   const record = {
     heightFt: Number(recordHeightFtInput.value),
     heightIn: Number(recordHeightInInput.value),
     weight: Number(recordWeightInput.value),
-    date: recordDateInput.value,
+    date: formattedDate,
   };
 
   selectedChild.growthRecords.push(record);
