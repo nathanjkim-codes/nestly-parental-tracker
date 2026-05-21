@@ -31,10 +31,12 @@
     <!-- Dashboard -->
     <main id="dashboard">
       <section class="card child-profile" id="child-profile">
-        <div class="empty-profile-message">
-          No child selected yet.
-          <br />
-          click "Add Child" to create a profile.
+        <div class="profile-container">
+          <p class="empty-profile-message">
+            No child selected yet.
+            <br />
+            click "Add Child" to create a profile.
+          </p>
         </div>
 
         <div class="card-content">
@@ -60,10 +62,9 @@
 
       <section class="card growth-chart" id="growth-chart">
         <h3>Growth Over Time</h3>
-        <div class="empty-chart-message">
-          No growth data yet.
-          <br />
-          Add records to visualize growth trends
+
+        <div class="chart-container">
+          <p class="empty-chart-message">No growth data yet.</p>
         </div>
         <canvas id="growthChart"></canvas>
       </section>
