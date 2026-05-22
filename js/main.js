@@ -59,9 +59,12 @@ const childGender = document.querySelector(".child-gender");
 // Records empty state
 const emptyRecordsMessage = document.querySelector(".empty-records-message");
 
-// Profile Empty
+// Profile empty state
 const emptyProfileMessage = document.querySelector(".empty-profile-message");
 const profileDetails = document.querySelector(".profile-details");
+
+// Chart empty state
+const emptyChartMessage = document.querySelector(".empty-chart-message");
 
 // ====================================================
 // Render Functions
@@ -111,7 +114,6 @@ function renderGrowthRecords(child) {
       deleteRecordBtn.classList.add("record-delete-btn");
 
       deleteRecordBtn.addEventListener("click", () => {
-        console.log("X clicked");
         child.growthRecords.splice(index, 1);
 
         saveChildren();
@@ -402,9 +404,24 @@ function getChartLabels() {
 }
 
 function renderGrowthChart() {
-  if (!selectedChild) return;
-  if (growthChart) {
-    growthChart.destroy();
+  if (!selectedChild || selectedChild.growthRecords.length === 0) {
+    emptyChartMessage.style.display = "block";
+    growthChartCanvas.style.display = "none";
+
+    if (growthChart) {
+      growthChart.destroy();
+      growthChart = null;
+    }
+
+    return;
+  } else {
+    emptyChartMessage.style.display = "none";
+    growthChartCanvas.style.display = "block";
+
+    if (growthChart) {
+      growthChart.destroy();
+      growthChart = null;
+    }
   }
 
   const chartHeight = getHeightChartData();
