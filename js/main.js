@@ -283,12 +283,13 @@ deleteBtn.addEventListener("click", () => {
   children.splice(childIndex, 1);
 
   selectedChild = null;
+  localStorage.removeItem("selectedChildId");
 
   saveChildren();
   renderChildren();
 
-  renderSelectedChild(selectedChild);
   clearChartUI();
+  clearSelectedChildUI();
 });
 
 // Add child
