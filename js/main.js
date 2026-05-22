@@ -139,6 +139,9 @@ function clearSelectedChildUI() {
 }
 
 function clearChartUI() {
+  emptyChartMessage.style.display = "block";
+  growthChartCanvas.style.display = "none";
+
   if (growthChart) {
     growthChart.destroy();
     growthChart = null;
@@ -288,8 +291,10 @@ deleteBtn.addEventListener("click", () => {
   saveChildren();
   renderChildren();
 
-  clearChartUI();
+  renderSelectedChild(null);
+
   clearSelectedChildUI();
+  clearChartUI();
 });
 
 // Add child
