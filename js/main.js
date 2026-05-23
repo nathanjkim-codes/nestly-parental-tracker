@@ -1,7 +1,12 @@
 // ====================================================
 // Imports
 // ====================================================
-import { children, createChild, createInitialGrowthRecord } from "./data.js";
+import {
+  children,
+  createChild,
+  createInitialGrowthRecord,
+  formatDate,
+} from "./data.js";
 import { createInputWrapper, createChildCard } from "./ui.js";
 import { loadChildren, saveChildren } from "./storage.js";
 

@@ -103,6 +103,7 @@ body {
 }
 
 .empty-profile-message {
+  display: inline-block;
   padding: 10px;
   margin-bottom: 6px;
   border-radius: 10px;
@@ -117,6 +118,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  min-height: 200px;
 }
 
 .profile-actions {
@@ -129,7 +131,7 @@ body {
 }
 
 .growth-chart {
-  min-height: 220px;
+  min-height: 200px;
 }
 
 .chart-container {
@@ -145,6 +147,7 @@ body {
 }
 
 .empty-chart-message {
+  display: inline-block;
   padding: 10px;
   margin-bottom: 6px;
   border-radius: 10px;
@@ -176,7 +179,20 @@ body {
   padding-right: 6px;
 }
 
+.records-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 200px;
+}
+
+.records-list h3 {
+  align-self: flex-start;
+}
+
 .empty-records-message {
+  display: inline-block;
+  margin: 0 auto;
   padding: 10px;
   margin-bottom: 6px;
   border-radius: 10px;

@@ -15,11 +15,16 @@ export function createChild(name, birth, heightFt, heightIn, weight, gender) {
   };
 }
 
+export function formatDate(dateString) {
+  const [year, month, day] = dateString.split("-");
+  return `${month}/${day}/${year}`;
+}
+
 export function createInitialGrowthRecord(heightFt, heightIn, weight) {
-  const today = new Date().toLocaleDateString();
+  const today = new Date().toISOString().split("T")[0];
 
   const initialRecord = {
-    date: today,
+    date: formatDate(today),
     heightFt: Number(heightFt),
     heightIn: Number(heightIn),
     weight: Number(weight),
