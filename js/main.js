@@ -416,14 +416,7 @@ function getChartLabels() {
 
 function renderGrowthChart() {
   if (!selectedChild || selectedChild.growthRecords.length === 0) {
-    emptyChartMessage.style.display = "block";
-    growthChartCanvas.style.display = "none";
-
-    if (growthChart) {
-      growthChart.destroy();
-      growthChart = null;
-    }
-
+    clearChartUI();
     return;
   } else {
     emptyChartMessage.style.display = "none";
