@@ -478,4 +478,8 @@ if (selectedChildId) {
     renderGrowthRecords(selectedChild);
     renderGrowthChart();
   }
+} else {
+  renderSelectedChild(null);
+  clearSelectedChildUI();
+  clearChartUI();
 }
