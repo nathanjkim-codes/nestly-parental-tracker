@@ -96,7 +96,7 @@ function renderSelectedChild(child) {
   childName.textContent = `Name: ${child.name}`;
   childBirth.textContent = `Birth Date: ${child.birth}`;
   childHeight.textContent = `Height: ${child.heightFt} ft ${child.heightIn} in`;
-  childWeight.textContent = `Weight: ${child.weight}`;
+  childWeight.textContent = `Weight: ${child.weight} lbs`;
   childGender.textContent = `Gender: ${child.gender}`;
 }
 
