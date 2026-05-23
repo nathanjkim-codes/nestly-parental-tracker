@@ -139,11 +139,11 @@ body {
   justify-content: center;
   align-items: center;
 
-  min-height: 190px;
+  padding-top: 70px;
 }
 
 #growthChart {
-  margin-top: 32px;
+  margin-top: 0px;
 }
 
 .empty-chart-message {
