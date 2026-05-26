@@ -21,7 +21,7 @@ export function formatDate(dateString) {
 }
 
 export function createInitialGrowthRecord(heightFt, heightIn, weight) {
-  const today = new Date().toISOString().split("T")[0];
+  const today = new Date().toLocaleDateString("en-CA");
 
   const initialRecord = {
     date: formatDate(today),
