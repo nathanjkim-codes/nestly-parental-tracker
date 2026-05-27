@@ -417,6 +417,7 @@ function getChartLabels() {
 function renderGrowthChart() {
   if (!selectedChild || selectedChild.growthRecords.length === 0) {
     clearChartUI();
+
     return;
   } else {
     emptyChartMessage.style.display = "none";
