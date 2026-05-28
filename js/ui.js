@@ -55,6 +55,15 @@ export function createInputWrapper() {
   genderSelect.name = "gender";
   genderSelect.id = "gender-select"; // ID for gender dropdown
 
+  //create placeholder option
+  const placeholderOption = document.createElement("option");
+  placeholderOption.value = "";
+  placeholderOption.textContent = "select gender";
+  placeholderOption.disabled = true;
+  placeholderOption.selected = true;
+
+  genderSelect.appendChild(placeholderOption);
+
   // Populate gender options
   const options = ["Male", "Female"];
   options.forEach((gender) => {
