@@ -20,11 +20,14 @@ export function formatDate(dateString) {
   return `${month}/${day}/${year}`;
 }
 
-export function createInitialGrowthRecord(heightFt, heightIn, weight) {
-  const today = new Date().toLocaleDateString("en-CA");
-
+export function createInitialGrowthRecord(
+  childDob,
+  heightFt,
+  heightIn,
+  weight,
+) {
   const initialRecord = {
-    date: formatDate(today),
+    date: formatDate(childDob),
     heightFt: Number(heightFt),
     heightIn: Number(heightIn),
     weight: Number(weight),

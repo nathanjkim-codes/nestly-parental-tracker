@@ -339,6 +339,7 @@ modalSaveBtn.addEventListener("click", () => {
     );
 
     const initialRecord = createInitialGrowthRecord(
+      childDob,
       childHeightFt,
       childHeightIn,
       childWeight,
