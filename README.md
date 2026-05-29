@@ -14,15 +14,19 @@ Coming Soon
 
 ### Dashboard
 
-![Dashboard](screenshots/dashboard.png)
+![Dashboard](screenshots/dashboard.jpg)
 
-### Growth Records
+### Child Profile
 
-![Growth Records](screenshots/records.png)
+![Child Profile](screenshots/child-profile.jpg)
 
 ### Growth Chart
 
-![Growth Chart](screenshots/chart.png)
+![Growth Chart](screenshots/growth-chart.jpg)
+
+### Growth Records
+
+![Growth Records](screenshots/growth-records.jpg)
 
 Nestly allows parents to create child profiles, track growth history, visualize growth data, and persist application state using LocalStorage.
 
