@@ -470,6 +470,8 @@ The V2 design focuses on:
 
 ## Dashboard Concept
 
+I created the V2 dashboard design in Figma to plan the user experience, information hierarchy, and component structure.
+
 ![Nestly V2 Dashboard](screenshots/nestly-v2-dashboard.JPG)
 
 ## Architecture Planning
