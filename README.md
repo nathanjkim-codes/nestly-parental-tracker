@@ -470,7 +470,7 @@ The V2 design focuses on:
 
 ## Dashboard Concept
 
-![Nestly V2 Dashboard](screenshots/nestly-v2-dashboard.jpg)
+![Nestly V2 Dashboard](screenshots/nestly-v2-dashboard.JPG)
 
 ## Architecture Planning
 
