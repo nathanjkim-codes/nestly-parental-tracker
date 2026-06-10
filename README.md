@@ -453,6 +453,41 @@ Over time, some branches became difficult to manage and merge.
 
 Nestly V2 will evolve from a LocalStorage-based frontend application into a scalable full-stack parenting dashboard focused on child development tracking, practical parenting workflows, and long-term data management.
 
+---
+
+# Nestly V2 Design Preview (In Progress)
+
+After completing the MVP version, I redesigned Nestly V2 with a stronger focus on product thinking, scalable frontend architecture, and improved user experience.
+
+The V2 design focuses on:
+
+- Dashboard-first user experience
+- Reduced parent input fatigue
+- Reusable component-based UI
+- Better information hierarchy
+- Growth, sleep, and feeding insights
+- AI-assisted summaries
+
+## Dashboard Concept
+
+![Nestly V2 Dashboard](screenshots/nestly-v2-dashboard.jpg)
+
+## Architecture Planning
+
+Before starting React development, I planned the component architecture and data flow to better understand how the application should scale.
+
+Focus areas:
+
+- Component responsibility
+- Reusable UI patterns
+- Parent-child data flow
+- State management planning
+- Separation of concerns
+
+![Nestly V2 Architecture](screenshots/nestly-v2-architecture.png)
+
+---
+
 ## Frontend & Architecture
 
 - React-based architecture
